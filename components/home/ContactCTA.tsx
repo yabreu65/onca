@@ -9,7 +9,7 @@ export default function ContactCTA() {
   const t = useTranslations('contact');
 
   return (
-    <section id="contacto-cta" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #0a1628 100%)' }}>
+    <section id="contacto" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #0a1628 100%)' }}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-service-blue/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-20 w-48 h-48 bg-onca-orange/15 rounded-full blur-3xl" />

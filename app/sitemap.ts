@@ -45,14 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     });
 
-    // Contact page
-    routes.push({
-      url: `${baseUrl}/${locale}/contacto`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    });
-
     // Success stories
     routes.push({
       url: `${baseUrl}/${locale}/casos-de-exito`,

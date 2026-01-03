@@ -32,7 +32,7 @@ export default function Header() {
     { label: t('services'), href: `/${locale}/servicios`, hasDropdown: true },
     { label: t('cases'), href: `/${locale}/casos-de-exito` },
     { label: t('partners'), href: `/${locale}/partners` },
-    { label: t('contact'), href: `/${locale}/contacto` },
+    { label: t('contact'), href: `/${locale}#contacto` },
   ];
 
   return (
@@ -128,7 +128,7 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-4 relative z-10">
               <LanguageSwitcher />
               <Link
-                href={`/${locale}/contacto`}
+                href={`/${locale}#contacto`}
                 className="btn-primary"
                 onClick={() => trackEvents.ctaClick('Header CTA')}
               >
@@ -193,7 +193,7 @@ export default function Header() {
               <LanguageSwitcher />
             </div>
             <Link
-              href={`/${locale}/contacto`}
+              href={`/${locale}#contacto`}
               className="btn-primary text-center mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >

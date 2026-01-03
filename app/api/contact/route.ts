@@ -2,7 +2,21 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { rateLimit, getClientIp } from '@/lib/rate-limit';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Force this route to be dynamic (not pre-rendered during build)
+export const dynamic = 'force-dynamic';
+
+// Lazy initialization of Resend
+let resend: Resend | null = null;
+function getResend() {
+  if (!resend) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error('RESEND_API_KEY is not configured');
+    }
+    resend = new Resend(apiKey);
+  }
+  return resend;
+}
 
 // Sanitize HTML to prevent XSS
 function sanitizeHtml(text: string): string {
@@ -75,7 +89,7 @@ export async function POST(request: Request) {
     const sanitizedMessage = sanitizeHtml(message);
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from: 'ONCA IT Website <noreply@oncait.com.ar>',
       to: ['mail@oncait.com.ar'],
       reply_to: email,
