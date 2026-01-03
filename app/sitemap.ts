@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { siteConfig, serviceKeys } from '@/lib/utils';
+import { siteConfig, serviceKeys, getServiceSlug } from '@/lib/utils';
 
 const baseUrl = siteConfig.url;
 const locales = ['es', 'en'];
@@ -7,11 +7,15 @@ const locales = ['es', 'en'];
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [];
 
+  const getLocalizedUrl = (locale: string, path: string) => {
+    return locale === 'es' ? `${baseUrl}${path}` : `${baseUrl}/${locale}${path}`;
+  };
+
   // Add root and main pages for each locale
   locales.forEach((locale) => {
     // Homepage
     routes.push({
-      url: `${baseUrl}/${locale}`,
+      url: getLocalizedUrl(locale, '/'),
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
@@ -19,26 +23,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Services overview
     routes.push({
-      url: `${baseUrl}/${locale}/servicios`,
+      url: getLocalizedUrl(locale, '/servicios'),
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     });
 
     // Individual service pages
-    const serviceSlugMap = {
-      visits: locale === 'es' ? 'visitas' : 'visits',
-      orders: locale === 'es' ? 'pedidos' : 'orders',
-      preparation: locale === 'es' ? 'preparacion' : 'preparation',
-      delivery: locale === 'es' ? 'entregas' : 'delivery',
-      reception: locale === 'es' ? 'recepcion' : 'reception',
-      collections: locale === 'es' ? 'cobranzas' : 'collections',
-      authorization: locale === 'es' ? 'autorizacion' : 'authorization',
-    };
-
     serviceKeys.forEach((key) => {
       routes.push({
-        url: `${baseUrl}/${locale}/servicios/${serviceSlugMap[key]}`,
+        url: getLocalizedUrl(locale, `/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`),
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,
@@ -47,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Success stories
     routes.push({
-      url: `${baseUrl}/${locale}/casos-de-exito`,
+      url: getLocalizedUrl(locale, '/casos-de-exito'),
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -55,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Partners
     routes.push({
-      url: `${baseUrl}/${locale}/partners`,
+      url: getLocalizedUrl(locale, '/partners'),
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -63,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Privacy policy
     routes.push({
-      url: `${baseUrl}/${locale}/privacidad`,
+      url: getLocalizedUrl(locale, '/privacidad'),
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
@@ -71,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Terms and conditions
     routes.push({
-      url: `${baseUrl}/${locale}/terminos`,
+      url: getLocalizedUrl(locale, '/terminos'),
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,

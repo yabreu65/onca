@@ -3,13 +3,17 @@
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { Phone, Mail, Linkedin, Instagram } from 'lucide-react';
-import { siteConfig, serviceKeys } from '@/lib/utils';
+import { siteConfig, serviceKeys, getServiceSlug } from '@/lib/utils';
 import Logo from '@/components/ui/Logo';
 
 export default function Footer() {
   const t = useTranslations('footer');
   const tServices = useTranslations('services.tabs');
   const locale = useLocale();
+
+  const getLocalizedPath = (path: string) => {
+    return locale === 'es' ? path : `/${locale}${path}`;
+  };
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -22,7 +26,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4">{t('services')}</h4>
             <ul className="space-y-2">
-              {serviceKeys.map((key) => (<li key={key}><Link href={`/${locale}/servicios/${key}`} className="text-gray-400 hover:text-onca-orange transition-colors text-sm">{tServices(key)}</Link></li>))}
+              {serviceKeys.map((key) => (<li key={key}><Link href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)} className="text-gray-400 hover:text-onca-orange transition-colors text-sm">{tServices(key)}</Link></li>))}
             </ul>
           </div>
           <div>

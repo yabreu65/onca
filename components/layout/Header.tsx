@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
-import { cn, siteConfig, serviceKeys } from '@/lib/utils';
+import { cn, siteConfig, serviceKeys, getServiceSlug } from '@/lib/utils';
 import { trackEvents } from '@/lib/analytics';
 import Logo from '@/components/ui/Logo';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -27,12 +27,16 @@ export default function Header() {
 
   useEffect(() => { setMobileMenuOpen(false); setServicesOpen(false); }, [pathname]);
 
+  const getLocalizedPath = (path: string) => {
+    return locale === 'es' ? path : `/${locale}${path}`;
+  };
+
   const navItems = [
-    { label: t('home'), href: `/${locale}` },
-    { label: t('services'), href: `/${locale}/servicios`, hasDropdown: true },
-    { label: t('cases'), href: `/${locale}/casos-de-exito` },
-    { label: t('partners'), href: `/${locale}/partners` },
-    { label: t('contact'), href: `/${locale}#contacto` },
+    { label: t('home'), href: getLocalizedPath('/') },
+    { label: t('services'), href: getLocalizedPath('/servicios'), hasDropdown: true },
+    { label: t('cases'), href: getLocalizedPath('/casos-de-exito') },
+    { label: t('partners'), href: getLocalizedPath('/partners') },
+    { label: t('contact'), href: getLocalizedPath('/#contacto') },
   ];
 
   return (
@@ -63,7 +67,7 @@ export default function Header() {
         <div className="max-w-7xl xl:max-w-[90%] mx-auto py-4 relative">
           <div className="flex items-center justify-between h-20">
             {/* Logo - sobre fondo blanco */}
-            <Link href={`/${locale}`} className="relative z-10">
+            <Link href={getLocalizedPath('/')} className="relative z-10">
               <Logo />
             </Link>
 
@@ -104,7 +108,7 @@ export default function Header() {
                         {serviceKeys.map((key) => (
                           <Link
                             key={key}
-                            href={`/${locale}/servicios/${key}`}
+                            href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)}
                             className="block px-4 py-3 rounded-lg hover:bg-onca-orange/10 text-gray-700 hover:text-onca-orange transition-colors"
                           >
                             {tServices(key)}
@@ -112,7 +116,7 @@ export default function Header() {
                         ))}
                         <hr className="my-2" />
                         <Link
-                          href={`/${locale}/servicios`}
+                          href={getLocalizedPath('/servicios')}
                           className="block px-4 py-3 rounded-lg hover:bg-onca-orange/10 text-onca-orange font-medium"
                         >
                           Ver todos →
@@ -128,7 +132,7 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-4 relative z-10">
               <LanguageSwitcher />
               <Link
-                href={`/${locale}#contacto`}
+                href={getLocalizedPath('/#contacto')}
                 className="btn-primary"
                 onClick={() => trackEvents.ctaClick('Header CTA')}
               >
@@ -167,7 +171,7 @@ export default function Header() {
                       {serviceKeys.map((key) => (
                         <Link
                           key={key}
-                          href={`/${locale}/servicios/${key}`}
+                          href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)}
                           className="block py-2 px-4 text-gray-600 hover:text-onca-orange"
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -193,7 +197,7 @@ export default function Header() {
               <LanguageSwitcher />
             </div>
             <Link
-              href={`/${locale}#contacto`}
+              href={getLocalizedPath('/#contacto')}
               className="btn-primary text-center mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >

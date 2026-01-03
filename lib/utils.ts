@@ -53,6 +53,31 @@ export const serviceSlugs: Record<string, ServiceKey> = {
   'authorization': 'authorization',
 };
 
+export const serviceSlugsByLocale: Record<'es' | 'en', Record<ServiceKey, string>> = {
+  es: {
+    visits: 'visitas',
+    orders: 'pedidos',
+    preparation: 'preparacion',
+    delivery: 'entregas',
+    reception: 'recepcion',
+    collections: 'cobranzas',
+    authorization: 'autorizacion',
+  },
+  en: {
+    visits: 'visits',
+    orders: 'orders',
+    preparation: 'preparation',
+    delivery: 'delivery',
+    reception: 'reception',
+    collections: 'collections',
+    authorization: 'authorization',
+  },
+};
+
+export function getServiceSlug(serviceKey: ServiceKey, locale: 'es' | 'en'): string {
+  return serviceSlugsByLocale[locale][serviceKey];
+}
+
 export const testimonials = [
   { company: 'TALLERES BANFIELD', name: 'Sebastián Queirolo', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80', quote: { es: 'El portal web desarrollado por ONCA IT significó una mejora sustancial en los ingresos de pedidos y en el servicio integral que damos a nuestros clientes', en: 'The web portal developed by ONCA IT meant a substantial improvement in order income and in the comprehensive service we provide to our clients' } },
   { company: 'PREVISORA DEL PARANÁ', name: 'Esteban Maciel', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80', quote: { es: 'ONCA IT desarrolló nuestra app móvil para gestión de clientes brindando innovación y acompañamiento. Logramos integrar con nuestro ERP, mejorando procesos y fomentando la evolución continua.', en: 'ONCA IT developed our mobile app for client management providing innovation and support. We integrated with our ERP, improving processes and fostering continuous evolution.' } },

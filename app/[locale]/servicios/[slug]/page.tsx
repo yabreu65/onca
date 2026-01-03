@@ -5,7 +5,8 @@ import { Play } from 'lucide-react';
 import { serviceKeys, serviceIcons, serviceSlugs, type ServiceKey } from '@/lib/utils';
 
 export function generateStaticParams() {
-  return serviceKeys.map((slug) => ({ slug }));
+  // Generate params for all slugs (both Spanish and English)
+  return Object.keys(serviceSlugs).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -24,6 +25,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const t = await getTranslations({ locale, namespace: 'services' });
   const currentIndex = serviceKeys.indexOf(serviceKey);
 
+  const getLocalizedPath = (path: string) => {
+    return locale === 'es' ? path : `/${locale}${path}`;
+  };
+
   return (
     <div className="min-h-screen">
       {/* Services navigation */}
@@ -33,7 +38,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {serviceKeys.map((key) => (
               <Link
                 key={key}
-                href={`/${locale}/servicios/${key}`}
+                href={getLocalizedPath(`/servicios/${key}`)}
                 className={`px-4 py-2 transition-all duration-200 whitespace-nowrap ${
                   key === serviceKey
                     ? 'text-black font-bold relative'

@@ -12,25 +12,27 @@ export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+  const maxIndex = Math.max(1, testimonials.length - 2);
+
   // Auto-play carousel every 5 seconds
   useEffect(() => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % Math.max(1, testimonials.length - 2));
+      setCurrentIndex((prev) => (prev + 1) % maxIndex);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, maxIndex]);
 
   const handlePrev = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev - 1 + Math.max(1, testimonials.length - 2)) % Math.max(1, testimonials.length - 2));
+    setCurrentIndex((prev) => (prev - 1 + maxIndex) % maxIndex);
   };
 
   const handleNext = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev + 1) % Math.max(1, testimonials.length - 2));
+    setCurrentIndex((prev) => (prev + 1) % maxIndex);
   };
 
   return (
@@ -63,50 +65,49 @@ export default function Testimonials() {
       {/* Carousel */}
       <div className="bg-gray-100 py-16 relative">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="relative">
-            {/* Testimonial cards - show 3 at a time */}
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-out gap-6"
-                style={{
-                  transform: `translateX(-${currentIndex * (100 / 3)}%)`
-                }}
-              >
-                {testimonials.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-full md:w-1/3 px-3"
-                  >
-                    <div className="bg-white rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                      {/* Image */}
-                      <div className="h-64 relative overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
+          <div className="relative px-16 overflow-hidden">
+            {/* Carousel container with sliding animation */}
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {testimonials.slice(0, maxIndex + 2).map((item, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-2">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {testimonials.slice(index, index + 3).map((card, cardIndex) => (
+                      <div key={cardIndex} className="flex">
+                        <div className="bg-white rounded-lg overflow-hidden shadow-lg h-full flex flex-col w-full">
+                          {/* Image */}
+                          <div className="h-64 relative overflow-hidden">
+                            <Image
+                              src={card.image}
+                              alt={card.name}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
 
-                      {/* Content */}
-                      <div className="p-6 flex-1 flex flex-col">
-                        <h3 className="font-bold text-gray-900 text-lg uppercase mb-1">
-                          {item.company}
-                        </h3>
-                        <p className="text-gray-700 font-medium text-sm mb-4">
-                          {item.name}
-                          {'role' in item && item.role && (
-                            <span className="block text-xs text-gray-500 mt-1">{item.role}</span>
-                          )}
-                        </p>
-                        <p className="text-gray-600 text-sm leading-relaxed flex-1">
-                          "{item.quote[locale]}"
-                        </p>
+                          {/* Content */}
+                          <div className="p-6 flex-1 flex flex-col">
+                            <h3 className="font-bold text-gray-900 text-lg uppercase mb-1">
+                              {card.company}
+                            </h3>
+                            <p className="text-gray-700 font-medium text-sm mb-4">
+                              {card.name}
+                              {'role' in card && card.role && (
+                                <span className="block text-xs text-gray-500 mt-1">{card.role}</span>
+                              )}
+                            </p>
+                            <p className="text-gray-600 text-sm leading-relaxed flex-1">
+                              "{card.quote[locale]}"
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
 
             {/* Navigation Arrows */}
@@ -125,23 +126,11 @@ export default function Testimonials() {
             >
               <ChevronRight size={32} />
             </button>
-
-            {/* Carousel indicator text */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-              <div className="text-center opacity-20 select-none">
-                <div className="text-6xl font-bold text-blue-600 tracking-wider">
-                  CAROUSEL
-                </div>
-                <div className="text-sm text-gray-600 mt-2">
-                  2 MINUTOS
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Dots indicator */}
           <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: Math.max(1, testimonials.length - 2) }).map((_, index) => (
+            {Array.from({ length: maxIndex }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => {

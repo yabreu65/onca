@@ -4,13 +4,17 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { Play } from 'lucide-react';
-import { cn, serviceKeys, serviceIcons, type ServiceKey } from '@/lib/utils';
+import { cn, serviceKeys, serviceIcons, getServiceSlug, type ServiceKey } from '@/lib/utils';
 import { trackEvents } from '@/lib/analytics';
 
 export default function ServicesPreview() {
   const t = useTranslations('services');
   const locale = useLocale();
   const [activeService, setActiveService] = useState<ServiceKey>('visits');
+
+  const getLocalizedPath = (path: string) => {
+    return locale === 'es' ? path : `/${locale}${path}`;
+  };
 
   const handleServiceChange = (key: ServiceKey) => {
     setActiveService(key);
@@ -80,7 +84,7 @@ export default function ServicesPreview() {
           {serviceKeys.map((key) => (
             <Link
               key={key}
-              href={`/${locale}/servicios/${key}`}
+              href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)}
               onClick={() => handleServiceChange(key)}
               className={cn(
                 'px-4 py-2 text-black font-semibold transition-all duration-200 whitespace-nowrap hover:text-orange-500',
