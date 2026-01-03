@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "title": "ONCA IT | Soluciones Móviles Empresariales",
+    "description": "Optimiza las operaciones de tu empresa con Onca Mobile. Gestión de pedidos, entregas, cobranzas y más desde cualquier dispositivo Android."
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "cases": "Casos de Éxito",
+    "partners": "Partners",
+    "contact": "Contacto",
+    "cta": "Solicitar asesoría"
+  },
+  "hero": {
+    "line1": "OPTIMIZA,",
+    "line2": "SIMPLIFICA",
+    "line3": "Y LIDERA",
+    "subtitle": "CON NUESTRAS SOLUCIONES",
+    "cta": "Conocé más"
+  },
+  "services": {
+    "title": "SERVICIOS",
+    "description": "Onca Mobile es una solución móvil pensada para digitalizar y optimizar las operaciones diarias de tu empresa. Integrada a tu sistema central o ERP, o en forma autónoma, permite registrar transacciones y actividades clave justo cuando ocurren, desde cualquier dispositivo Android, con o sin conexión.",
+    "viewMore": "Ver más detalles",
+    "watchDemo": "Ver demo",
+    "benefits": "Principales Beneficios",
+    "features": "Características",
+    "backToServices": "Volver a servicios",
+    "otherServices": "Otros servicios",
+    "tabs": {
+      "visits": "Visitas a clientes",
+      "orders": "Carga de Pedidos Web",
+      "preparation": "Preparación",
+      "delivery": "Repartos",
+      "reception": "Recepción",
+      "collections": "Cobranzas",
+      "authorization": "Autorización"
+    },
+    "items": {
+      "visits": {
+        "title": "Visitas a clientes, Cotizaciones y Pedidos Mobile",
+        "subtitle": "Potenciá tu fuerza de ventas con una solución ágil y eficiente.",
+        "description": "Este módulo permite a tu equipo comercial gestionar cotizaciones, registrar pedidos y declarar visitas a clientes directamente desde tu dispositivo móvil, en cualquier momento y lugar.",
+        "highlight": "Aumentá tus ventas con mayor cercanía al cliente y una fuerza comercial más eficiente. Agilizá pedidos, reducí costos y mejorá la satisfacción con entregas rápidas y sin errores. Registrá cotizaciones, visitas y pedidos en tiempo real, con geolocalización, agenda inteligente, controles comerciales flexibles y acceso instantáneo a stock, precios y condiciones. Atención personalizada con información clave al instante.",
+        "benefits": ["Geolocalización en tiempo real", "Agenda inteligente", "Controles comerciales flexibles", "Acceso instantáneo a stock y precios", "Atención personalizada"]
+      },
+      "orders": {
+        "title": "Portal de Clientes • Carga de Pedidos Web",
+        "subtitle": "Atendé a tus clientes B2B de forma ágil, directa y sin intermediarios.",
+        "description": "Nuestro portal web está diseñado para que tus clientes gestionen sus pedidos con total independencia, comodidad y en tiempo real. Conectado en línea a tu sistema ERP, les permite acceder a toda la información que necesitan para comprar de manera eficiente y segura.",
+        "highlight": "Ofrecé a tus clientes autonomía total para gestionar pedidos y consultar información 24/7. Accedé a precios actualizados, stock en tiempo real y datos financieros como saldos y facturas. App 100% web, accesible desde cualquier dispositivo, integrada en línea con tu ERP. Sin duplicación de datos ni demoras. Ideal para empresas con clientes mayoristas, distribuidores o corporativos.",
+        "benefits": ["Autonomía total 24/7", "Precios actualizados en tiempo real", "Stock disponible al instante", "Datos financieros integrados", "100% web, cualquier dispositivo"]
+      },
+      "preparation": {
+        "title": "Preparación, control, embalaje y despacho mobile",
+        "subtitle": "Agiliza tus Operaciones Logísticas con Precisión y Eficiencia.",
+        "description": "Nuestro módulo de Preparación y Despacho transforma el manejo de tu inventario en un proceso ágil y libre de errores. Desde dispositivos móviles Android, podrás gestionar todo, desde el picking hasta el envío, eliminando el uso de papel y procesos manuales.",
+        "highlight": "Agilizá la preparación y despacho de pedidos con mayor precisión, menos errores y mejor uso del tiempo y recursos. Optimización de recorridos con mapas inteligentes, digitalización total sin papel, y trazabilidad en tiempo real. Compatible con tablets y colectoras Android, incluye escaneo de códigos y se integra con tu ERP. Ideal para envíos a clientes o entre depósitos, mejorando entregas y fidelización.",
+        "benefits": ["Mapas inteligentes para recorridos", "Digitalización total sin papel", "Trazabilidad en tiempo real", "Compatible con Android", "Escaneo de códigos"]
+      },
+      "delivery": {
+        "title": "Repartos",
+        "subtitle": "Optimización y Eficiencia en tus Entregas.",
+        "description": "Diseñado para mejorar el proceso de entrega de principio a fin, nuestro módulo de Repartos asegura que cada pedido llegue a su destino con la máxima eficiencia. Experimentá un flujo de trabajo mejorado, menos errores y mayor satisfacción del cliente.",
+        "highlight": "Mejorá la eficiencia en entregas optimizando recorridos y tiempos. Brindá información en tiempo real a clientes y equipos, con avisos automáticos sobre el estado del reparto. Reducí errores y reclamos con procesos más precisos y organizados. Usá rutas óptimas, integración con apps de ruteo y documentación digital con fotos de remitos firmados. Con Repartos, transformá tu logística y elevá la satisfacción del cliente.",
+        "benefits": ["Rutas óptimas integradas", "Avisos automáticos en tiempo real", "Documentación digital", "Fotos de remitos firmados", "Reducción de errores y reclamos"]
+      },
+      "reception": {
+        "title": "Recepción de Mercadería Mobile",
+        "subtitle": "Optimización y Control en la Recepción de Tus Productos.",
+        "description": "Nuestro módulo de Recepción de Mercadería está diseñado para agilizar y optimizar el proceso de recepción, asegurando que cada entrega de tus proveedores o almacenes propios sea gestionada con calma y precisión.",
+        "highlight": "Mejorá la recepción de mercadería con procesos ágiles y precisos. Evitá ingresos no autorizados, minimizá errores y automatizá reclamos a proveedores. Usá códigos de barras y QR para un control exacto, identificación automática de productos y validación contra pedidos. Implementá control ciego para mayor precisión. Con este módulo, hacé tu recepción más eficiente, segura y alineada con tus órdenes reales.",
+        "benefits": ["Códigos de barras y QR", "Identificación automática", "Validación contra pedidos", "Control ciego", "Reclamos automatizados"]
+      },
+      "collections": {
+        "title": "Cobranzas Mobile",
+        "subtitle": "Gestión Eficiente y Digitalizada de Cobranzas.",
+        "description": "El módulo de Cobranzas Mobile revoluciona la gestión de pagos, permitiendo un impacto inmediato y un manejo eficiente de los cobros realizados por el equipo de campo. Di adiós al papel y da la bienvenida a una solución completamente digital.",
+        "highlight": "Cobranzas en tiempo real, sin papel y con cuenta corriente siempre actualizada. Registrá pagos con precisión, liberá crédito al instante y mejorá la experiencia del cliente. Evitá errores, duplicaciones y mejorá la gestión de valores. Capturá múltiples medios de pago y aplicá comprobantes con claridad. Con Cobranzas Mobile, digitalizá tu proceso y hacelo más ágil, seguro y eficiente para tu equipo y tus clientes.",
+        "benefits": ["Tiempo real, sin papel", "Cuenta corriente actualizada", "Múltiples medios de pago", "Aplicación clara de comprobantes", "Liberación de crédito instantánea"]
+      },
+      "authorization": {
+        "title": "Autorización",
+        "subtitle": "Optimización del análisis y aprobación de órdenes.",
+        "description": "El módulo de Autorizaciones optimiza el análisis y la aprobación de órdenes de compra, pedidos y requerimientos, permitiendo decisiones inmediatas y mayor control operativo. Simplificá los procesos internos y asegurá trazabilidad en cada instancia, todo desde un entorno 100% digital.",
+        "highlight": "La automatización de reglas y circuitos de aprobación optimiza los procesos internos y mejora la coordinación entre áreas. Elimina gestiones manuales, estandariza criterios y aporta eficiencia y transparencia a la operación diaria.",
+        "benefits": ["Automatización de reglas", "Circuitos de aprobación", "Eliminación de gestiones manuales", "Estandarización de criterios", "Eficiencia y transparencia"]
+      }
+    }
+  },
+  "testimonials": {
+    "title": "CASOS DE ÉXITO",
+    "subtitle": "Lo que dicen nuestros clientes"
+  },
+  "partners": {
+    "title": "ECOSISTEMA",
+    "description": "Clientes, aliados estratégicos y partners forman parte de una red que hace más robusta nuestra propuesta."
+  },
+  "contact": {
+    "title": "¿Necesitás hablar con nosotros?",
+    "subtitle": "Estamos disponibles para ayudarte por WhatsApp. Hacé clic en el botón y te respondemos en minutos.",
+    "whatsapp": "Hablar por WhatsApp",
+    "formTitle": "Envianos un mensaje",
+    "formSubtitle": "Completá el formulario y te contactamos a la brevedad.",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Email",
+      "phone": "Teléfono",
+      "company": "Empresa",
+      "message": "Mensaje",
+      "privacy": "Acepto la política de privacidad",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado! Te contactaremos pronto.",
+      "error": "Error al enviar. Por favor, intentá de nuevo."
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "emailRequired": "El email es requerido",
+      "emailInvalid": "Email inválido",
+      "companyRequired": "La empresa es requerida",
+      "messageRequired": "El mensaje es requerido",
+      "messageMin": "Mínimo 20 caracteres",
+      "privacyRequired": "Debés aceptar la política"
+    }
+  },
+  "footer": {
+    "description": "Soluciones móviles empresariales para optimizar las operaciones diarias de tu empresa.",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "follow": "Seguinos",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última actualización: {date}",
+    "intro": "En ONCA IT nos comprometemos a proteger tu privacidad. Esta política describe cómo recopilamos, usamos y protegemos tu información personal.",
+    "sections": {
+      "collection": {
+        "title": "Información que Recopilamos",
+        "content": "Recopilamos información que nos proporcionás directamente, como nombre, email, teléfono y empresa cuando completás nuestro formulario de contacto o solicitás una demo."
+      },
+      "use": {
+        "title": "Uso de la Información",
+        "content": "Utilizamos tu información para responder a tus consultas, enviarte información sobre nuestros servicios y mejorar nuestras soluciones."
+      },
+      "protection": {
+        "title": "Protección de Datos",
+        "content": "Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado, alteración o destrucción."
+      },
+      "rights": {
+        "title": "Tus Derechos",
+        "content": "Tenés derecho a acceder, corregir o eliminar tu información personal. Contactanos en cualquier momento para ejercer estos derechos."
+      }
+    }
+  },
+  "terms": {
+    "title": "Términos y Condiciones",
+    "lastUpdated": "Última actualización: {date}",
+    "intro": "Bienvenido a ONCA IT. Al usar nuestro sitio web y servicios, aceptás estos términos y condiciones.",
+    "sections": {
+      "services": {
+        "title": "Uso de Servicios",
+        "content": "Nuestros servicios están diseñados para empresas que buscan optimizar sus operaciones móviles. El uso de nuestras soluciones está sujeto a los acuerdos comerciales específicos."
+      },
+      "intellectual": {
+        "title": "Propiedad Intelectual",
+        "content": "Todo el contenido de este sitio, incluyendo texto, gráficos, logos y software, es propiedad de ONCA IT y está protegido por leyes de propiedad intelectual."
+      },
+      "liability": {
+        "title": "Limitación de Responsabilidad",
+        "content": "ONCA IT no será responsable por daños indirectos, incidentales o consecuentes que surjan del uso o la imposibilidad de usar nuestros servicios."
+      },
+      "modifications": {
+        "title": "Modificaciones",
+        "content": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor al ser publicadas en este sitio."
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply antialiased; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-white hover:bg-gray-50 text-gray-900 font-bold
+           px-6 py-3 rounded-lg transition-all duration-300
+           hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-100 text-onca-orange font-semibold 
+           px-6 py-3 rounded-full transition-all duration-300 
+           border-2 border-onca-orange hover:scale-105;
+  }
+
+  .btn-whatsapp {
+    @apply bg-green-500 hover:bg-green-600 text-white font-bold 
+           px-8 py-4 rounded-full transition-all duration-300 
+           hover:scale-105 hover:shadow-lg hover:shadow-green-500/30
+           inline-flex items-center gap-3;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-montserrat font-black;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .nav-link {
+    @apply text-white hover:text-white/80 font-medium transition-colors duration-200;
+  }
+
+  .service-tab {
+    @apply px-4 py-3 text-sm font-medium rounded-t-lg transition-all duration-300 border-b-2 border-transparent;
+  }
+
+  .service-tab:hover { @apply bg-onca-orange/10; }
+  .service-tab.active { @apply border-onca-orange text-onca-orange bg-onca-orange/5; }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 
+           focus:border-onca-orange focus:ring-2 focus:ring-onca-orange/20 
+           outline-none transition-all;
+  }
+
+  .input-error { @apply border-red-500 focus:border-red-500 focus:ring-red-500/20; }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #a1a1a1; }
