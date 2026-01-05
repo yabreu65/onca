@@ -1,0 +1,379 @@
+[
+  {
+    "id": "TC001",
+    "title": "Verify language switcher changes site locale correctly",
+    "description": "Test that selecting a language from the language switcher updates the site's locale, loads content in the selected language, and updates routes accordingly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the homepage with default locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify homepage content is in default language"
+      },
+      {
+        "type": "action",
+        "description": "Use language switcher to select alternate supported language"
+      },
+      {
+        "type": "assertion",
+        "description": "URL updates with locale prefix and content updates to selected language"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to services page in new locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify services listing content is localized and loads correctly"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Verify dynamic sitemap.xml generation",
+    "description": "Ensure sitemap.xml is generated dynamically and reflects current site structure with all localized pages and services.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Request /sitemap.xml from the site"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify sitemap XML is valid"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URLs include all supported locales for homepage and key pages"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify service detail pages appear with their respective slugs and locales"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Verify robots.txt dynamic generation",
+    "description": "Check that robots.txt is dynamically generated and contains correct directives reflecting current SEO configuration.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Request /robots.txt from the site"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify robots.txt contains valid User-agent and Allow/Disallow entries"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify sitemap URL is correctly referenced in robots.txt"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Contact form submission success and rate limiting",
+    "description": "Test the contact form submission triggers email API call and enforces rate limiting to prevent abuse.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to contact form"
+      },
+      {
+        "type": "action",
+        "description": "Fill in valid contact form data"
+      },
+      {
+        "type": "action",
+        "description": "Submit contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify email is sent via Resend email API"
+      },
+      {
+        "type": "action",
+        "description": "Submit contact form repeatedly exceeding rate limit threshold"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify server rejects requests after rate limit exceeded with appropriate error"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Handle contact form API errors gracefully",
+    "description": "Verify that network failures or email API errors during contact form submission show user-friendly error messages.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate network failure on contact form submission"
+      },
+      {
+        "type": "action",
+        "description": "Submit contact form with valid data"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that friendly error message is displayed and form is not submitted"
+      },
+      {
+        "type": "action",
+        "description": "Simulate Resend API failure response"
+      },
+      {
+        "type": "action",
+        "description": "Submit contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user sees failure notification and form retains inputs"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Verify homepage main sections render correctly with localized content",
+    "description": "Ensure hero, services preview, testimonials, partners, and contact CTA sections are visible and localized on the homepage for each supported language.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to homepage in each supported locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify hero section text and images appear correctly and localized"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify preview of services listing is accurate and localized"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify testimonials section displays correct client quotes in locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify partner logos are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify contact call-to-action button is visible and localized"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Verify service listing page with slug navigation",
+    "description": "Check that the service listing page loads localized service summaries and that individual service pages load correctly by slug with correct content.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to service listing page in a supported locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify all services are listed with localized names and summaries"
+      },
+      {
+        "type": "action",
+        "description": "Click on individual service link by slug"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify detailed service page loads with correct localized content"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to non-existing service slug URL"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify 404 or appropriate error page is displayed"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Verify legal pages accessibility and correct localization",
+    "description": "Ensure privacy policy and terms and conditions pages are accessible, properly localized, and display correct legal text for each supported language.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to privacy policy page in each supported locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page loads successfully and text is localized"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to terms and conditions page in each supported locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page loads successfully and text is localized"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Ensure main UI components render correctly and respond across devices",
+    "description": "Validate header, footer, language switcher, brand logo, WhatsApp button, and analytics container render correctly on desktop, tablet, and mobile viewports.",
+    "category": "ui",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load any main page on desktop viewport"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify header, footer, language switcher, logo, and WhatsApp button are visible and functional"
+      },
+      {
+        "type": "action",
+        "description": "Resize viewport to tablet dimensions and reload"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify UI components adapt responsively and remain visible and interactive"
+      },
+      {
+        "type": "action",
+        "description": "Resize viewport to mobile dimensions and reload"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify UI components remain usable, accessible, and correctly styled"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Validate global Tailwind CSS styles consistency",
+    "description": "Check that global styling via Tailwind CSS is consistently applied across all pages and components with no visual regressions.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate through homepage, service listing, service detail, legal pages, and contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify consistent color schemes, spacing, typography, and responsive layouts as per Tailwind configuration"
+      },
+      {
+        "type": "action",
+        "description": "Compare visual styling with baseline design spec"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm no style regressions or inconsistencies are present"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Verify language middleware routing behavior",
+    "description": "Test the middleware that handles locale routing to ensure requests to localized paths serve correct content and fallback behavior is correct.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to an URL with an existing locale prefix"
+      },
+      {
+        "type": "assertion",
+        "description": "Page loads with locale specific content"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to an URL without locale prefix"
+      },
+      {
+        "type": "assertion",
+        "description": "Middleware redirects or serves page with default locale content"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to URL with unsupported locale prefix"
+      },
+      {
+        "type": "assertion",
+        "description": "Middleware handles gracefully, either redirecting to default locale or showing error"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Test language-specific loading UI during route changes",
+    "description": "Verify that the loading UI localized per current language appears during locale-based route changes.",
+    "category": "ui",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Trigger language switcher selection or navigate to a locale route causing page load"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that loading indicator displays and is localized in the target locale"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify loading UI disappears once content fully loads"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Validate integration of contact form with Resend email API",
+    "description": "Ensure that the backend API route correctly integrates with Resend email API and uses configured environment variables securely.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Submit contact form with test input"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API forwards email request to Resend with proper parameters"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify .env.local is loaded securely and no sensitive info is exposed in frontend"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to bypass rate limit with API calls"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify rate limiting enforcement applies on API layer"
+      }
+    ]
+  }
+]

@@ -8,7 +8,13 @@ export default function PartnersPage() {
   return (
     <div className="min-h-screen">
       <section className="relative py-32">
-        <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80" alt="Partners" fill className="object-cover" />
+        <Image
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
+          alt="Partners"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-service-blue/90" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="section-title text-white mb-4">{t('title')}</h1>

@@ -67,7 +67,7 @@ export default function Header() {
         <div className="max-w-7xl xl:max-w-[90%] mx-auto py-4 relative">
           <div className="flex items-center justify-between h-20">
             {/* Logo - sobre fondo blanco */}
-            <Link href={getLocalizedPath('/')} className="relative z-10">
+            <Link href={getLocalizedPath('/')} className="relative z-10 sm:scale-100 scale-90">
               <Logo />
             </Link>
 

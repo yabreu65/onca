@@ -11,7 +11,13 @@ export default function Partners() {
     <section id="partners" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="relative rounded-3xl overflow-hidden mb-16 py-20 px-8">
-          <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80" alt="Ecosystem" fill className="object-cover" />
+          <Image
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
+            alt="Ecosystem"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-service-blue/85" />
           <div className="relative z-10 text-center">
             <h2 className="section-title text-white mb-4">{t('title')}</h2>

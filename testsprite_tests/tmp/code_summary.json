@@ -1,0 +1,105 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "Next.js 15 (App Router)",
+    "React 19",
+    "Tailwind CSS",
+    "next-intl",
+    "react-hook-form",
+    "zod",
+    "framer-motion",
+    "lucide-react",
+    "Resend (email API)"
+  ],
+  "features": [
+    {
+      "name": "Internacionalización y enrutamiento por idioma",
+      "description": "Middleware y layouts por locale para servir páginas en múltiples idiomas.",
+      "files": [
+        "middleware.ts",
+        "app/[locale]/layout.tsx",
+        "app/[locale]/page.tsx",
+        "app/[locale]/loading.tsx"
+      ]
+    },
+    {
+      "name": "SEO dinámico",
+      "description": "Generación de sitemap y robots.txt dinámicos.",
+      "files": [
+        "app/sitemap.ts",
+        "app/robots.ts"
+      ]
+    },
+    {
+      "name": "Formulario de contacto (API)",
+      "description": "Endpoint para envío de contacto con integración de email via Resend y rate limiting.",
+      "files": [
+        "app/api/contact/route.ts",
+        "lib/rate-limit.ts",
+        ".env.local"
+      ]
+    },
+    {
+      "name": "Layout principal",
+      "description": "Encabezado, pie de página, cambio de idioma y contenedor de analíticas.",
+      "files": [
+        "components/layout/Header.tsx",
+        "components/layout/Footer.tsx",
+        "components/layout/LanguageSwitcher.tsx",
+        "components/layout/Analytics.tsx"
+      ]
+    },
+    {
+      "name": "Home",
+      "description": "Secciones de la portada: hero, servicios, testimonios, CTA de contacto y partners.",
+      "files": [
+        "components/home/Hero.tsx",
+        "components/home/ServicesPreview.tsx",
+        "components/home/Testimonials.tsx",
+        "components/home/ContactCTA.tsx",
+        "components/home/Partners.tsx"
+      ]
+    },
+    {
+      "name": "Servicios",
+      "description": "Listado y detalle de servicios con slugs y claves definidas en utilidades.",
+      "files": [
+        "app/[locale]/servicios/page.tsx",
+        "app/[locale]/servicios/[slug]/page.tsx",
+        "lib/utils.ts"
+      ]
+    },
+    {
+      "name": "Páginas legales",
+      "description": "Política de privacidad y términos y condiciones.",
+      "files": [
+        "app/[locale]/privacidad/page.tsx",
+        "app/[locale]/terminos/page.tsx"
+      ]
+    },
+    {
+      "name": "Componentes UI",
+      "description": "Logo y botón de WhatsApp.",
+      "files": [
+        "components/ui/Logo.tsx",
+        "components/ui/WhatsAppButton.tsx"
+      ]
+    },
+    {
+      "name": "Estilos globales",
+      "description": "Hoja de estilos global con Tailwind CSS.",
+      "files": [
+        "app/globals.css",
+        "tailwind.config.ts",
+        "postcss.config.js"
+      ]
+    },
+    {
+      "name": "Utilidades y datos del sitio",
+      "description": "Funciones de ayuda, configuración del sitio, slugs de servicios y datos de partners/testimonios.",
+      "files": [
+        "lib/utils.ts"
+      ]
+    }
+  ]
+}

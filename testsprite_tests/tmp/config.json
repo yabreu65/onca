@@ -1,0 +1,20 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3001",
+  "executionArgs": {
+    "projectName": "onca-it-project",
+    "projectPath": "/Users/yoryiabreu/proyectos/onca-it-project",
+    "testIds": [
+      "TC008",
+      "TC009",
+      "TC001"
+    ],
+    "additionalInstruction": "",
+    "envs": {
+      "API_KEY": "sk-user-_zVaCr5NrlVLSTx5gRklv33liZNR9Kv8L5Ozl43NbCo0jN4Q9_oAfteRQXptlTJAPHXCulbGb50iiT0K5SHgNIjs-bYmtLuJW3ASXPtdijJRoMbyGEi5W2WduLBctP7eHsw"
+    }
+  },
+  "proxy": "http://b452eeb6-cf3c-4330-bf60-295f13dc431f:H2BlBK2KMPD26iOkdd0dmp9jFKrn3TXj@tun.testsprite.com:8080"
+}

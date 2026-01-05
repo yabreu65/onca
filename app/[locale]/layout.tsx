@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const messages = await getMessages();
   const t = messages.metadata as { title: string; description: string };
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
     title: { default: t.title, template: '%s | ONCA IT' },
     description: t.description,
     keywords: ['ERP móvil', 'gestión empresarial', 'app Android empresas', 'software logístico'],
