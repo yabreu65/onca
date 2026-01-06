@@ -22,13 +22,7 @@ export default function CasosDeExitoPage() {
             {testimonials.map((item, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row">
                 <div className="md:w-1/3 h-48 md:h-auto relative">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                  <Image src={item.image} alt={item.name} fill className="object-cover" />
                 </div>
                 <div className="md:w-2/3 p-6">
                   <Quote size={32} className="text-onca-orange mb-4" />

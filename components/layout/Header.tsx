@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <>
       {/* Barra superior gris oscuro */}
-      <div className="bg-gray-900 text-white text-sm py-2 hidden md:block">
+      <div className="bg-gray-900 text-white text-sm py-4 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 flex justify-center gap-8">
           <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 hover:text-onca-orange transition-colors">
             <Phone size={14} />{siteConfig.phone}
@@ -64,7 +64,7 @@ export default function Header() {
         </svg>
 
         {/* Contenido del header con flexbox */}
-        <div className="max-w-7xl xl:max-w-[90%] mx-auto py-4 relative">
+        <div className="max-w-7xl xl:max-w-[90%] mx-auto py-2 relative">
           <div className="flex items-center justify-between h-20">
             {/* Logo - sobre fondo blanco */}
             <Link href={getLocalizedPath('/')} className="relative z-10 sm:scale-100 scale-90">
@@ -72,7 +72,7 @@ export default function Header() {
             </Link>
 
             {/* Navegación desktop - sobre fondo naranja */}
-            <nav className="hidden lg:flex items-center gap-8 relative z-10">
+            <nav className="hidden md:flex items-center gap-8 relative z-10">
               {navItems.map((item) => (
                 <div key={item.href} className="relative group">
                   {item.hasDropdown ? (
@@ -87,7 +87,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-white hover:text-white/80 font-medium transition-colors duration-200"
+                      className="text-white hover:text-white/80 font-poppins font-semibold text-md transition-colors duration-200"
                     >
                       {item.label}
                     </Link>

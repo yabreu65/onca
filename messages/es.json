@@ -28,7 +28,7 @@
     "backToServices": "Volver a servicios",
     "otherServices": "Otros servicios",
     "tabs": {
-      "visits": "Visitas a clientes",
+      "visits": "Visitas a Clientes",
       "orders": "Carga de Pedidos Web",
       "preparation": "Preparación",
       "delivery": "Repartos",
@@ -38,7 +38,7 @@
     },
     "items": {
       "visits": {
-        "title": "Visitas a clientes, Cotizaciones y Pedidos Mobile",
+        "title": "Visitas a Clientes, Cotizaciones y Pedidos Mobile",
         "subtitle": "Potenciá tu fuerza de ventas con una solución ágil y eficiente.",
         "description": "Este módulo permite a tu equipo comercial gestionar cotizaciones, registrar pedidos y declarar visitas a clientes directamente desde tu dispositivo móvil, en cualquier momento y lugar.",
         "highlight": "Aumentá tus ventas con mayor cercanía al cliente y una fuerza comercial más eficiente. Agilizá pedidos, reducí costos y mejorá la satisfacción con entregas rápidas y sin errores. Registrá cotizaciones, visitas y pedidos en tiempo real, con geolocalización, agenda inteligente, controles comerciales flexibles y acceso instantáneo a stock, precios y condiciones. Atención personalizada con información clave al instante.",
@@ -94,7 +94,7 @@
   },
   "partners": {
     "title": "ECOSISTEMA",
-    "description": "Clientes, aliados estratégicos y partners forman parte de una red que hace más robusta nuestra propuesta."
+    "description": "Clientes, aliados estratégicos y partners forman parte de una red que hace más robusta nuestra propuesta. Trabajamos en conjunto para integrar soluciones, sumar capacidades y llevar la operación diaria al siguiente nivel."
   },
   "contact": {
     "title": "¿Necesitás hablar con nosotros?",

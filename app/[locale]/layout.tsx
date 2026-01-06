@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat, Open_Sans } from 'next/font/google';
+import { Montserrat, Open_Sans, Poppins, Roboto_Condensed } from 'next/font/google';
 import '../globals.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -12,6 +12,8 @@ import Analytics from '@/components/layout/Analytics';
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat', display: 'swap' });
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-opensans', display: 'swap' });
+const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'], variable: '--font-poppins', display: 'swap' });
+const robotoCondensed = Roboto_Condensed({ subsets: ['latin'], variable: '--font-roboto-condensed', display: 'swap' });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

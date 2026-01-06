@@ -47,8 +47,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               >
                 {t(`tabs.${key}`)}
                 {key === serviceKey && (
-                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
-                    <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[15px] border-t-orange-500" />
+                  <div className="absolute -bottom-5 left-0 right-0">
+                    <div className="h-1.5 bg-orange-500 rounded-sm" />
                   </div>
                 )}
               </Link>

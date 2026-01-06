@@ -1,19 +1,26 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { useTranslations, useLocale } from 'next-intl';
-import { Play } from 'lucide-react';
-import { cn, serviceKeys, serviceIcons, getServiceSlug, type ServiceKey } from '@/lib/utils';
-import { trackEvents } from '@/lib/analytics';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
+import { Play } from "lucide-react";
+import {
+  cn,
+  serviceKeys,
+  serviceIcons,
+  getServiceSlug,
+  type ServiceKey,
+} from "@/lib/utils";
+import { trackEvents } from "@/lib/analytics";
 
 export default function ServicesPreview() {
-  const t = useTranslations('services');
+  const t = useTranslations("services");
   const locale = useLocale();
-  const [activeService, setActiveService] = useState<ServiceKey>('visits');
+  const [activeService, setActiveService] = useState<ServiceKey>("visits");
 
   const getLocalizedPath = (path: string) => {
-    return locale === 'es' ? path : `/${locale}${path}`;
+    return locale === "es" ? path : `/${locale}${path}`;
   };
 
   const handleServiceChange = (key: ServiceKey) => {
@@ -32,51 +39,105 @@ export default function ServicesPreview() {
       </div>
 
       {/* Blue header section */}
-      <div className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 text-white py-12 overflow-hidden">
-        {/* Background pattern - circuit board style */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
-              linear-gradient(90deg, transparent 49.5%, rgba(59, 130, 246, 0.1) 49.5%, rgba(59, 130, 246, 0.1) 50.5%, transparent 50.5%),
-              linear-gradient(0deg, transparent 49.5%, rgba(59, 130, 246, 0.1) 49.5%, rgba(59, 130, 246, 0.1) 50.5%, transparent 50.5%)
-            `,
-            backgroundSize: '100% 100%, 100% 100%, 40px 40px, 40px 40px'
-          }} />
+      <div
+        className="relative text-white overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(to top, #000 20%, #020305 60%, #03060a 80%, #1B3A57 100%)",
+        }}
+      >
+        {/* Background image */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <Image
+            src="/images/Firefly digital blue electric background with digital info 16224.jpg"
+            alt="Digital background"
+            fill
+            className="object-cover opacity-80"
+            priority
+            sizes="100vw"
+          />
+          {/* Overlay gradient to ensure text readability */}
+          <div
+            className="absolute inset-0 bg-black/20"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(0,0,0,0.99), rgba(0,0,0,0.7), rgba(0,0,0,0.1), transparent)",
+            }}
+          />
         </div>
 
-        <div className="max-w-[90%] mx-auto px-4 relative z-10">
+        <div className="max-w-[90%] mx-auto px-4 pb-6 relative z-10">
           {/* Logo */}
-          <div className="flex mb-8">
-            <div>
+          <div className="flex">
+            <div className="pt-8">
               <div className="w-12 h-12 bg-blue-800/50 rounded-lg flex items-center justify-center border border-blue-700/50">
-                <svg className="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="4" y="4" width="32" height="32" rx="2" stroke="currentColor" strokeWidth="1.5" />
-                  <rect x="8" y="8" width="10" height="10" fill="currentColor" opacity="0.6" />
-                  <rect x="22" y="8" width="10" height="10" fill="currentColor" opacity="0.4" />
-                  <rect x="8" y="22" width="10" height="10" fill="currentColor" opacity="0.4" />
-                  <rect x="22" y="22" width="10" height="10" fill="currentColor" opacity="0.8" />
+                <svg
+                  className="w-8 h-8"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="4"
+                    y="4"
+                    width="32"
+                    height="32"
+                    rx="2"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <rect
+                    x="8"
+                    y="8"
+                    width="10"
+                    height="10"
+                    fill="currentColor"
+                    opacity="0.6"
+                  />
+                  <rect
+                    x="22"
+                    y="8"
+                    width="10"
+                    height="10"
+                    fill="currentColor"
+                    opacity="0.4"
+                  />
+                  <rect
+                    x="8"
+                    y="22"
+                    width="10"
+                    height="10"
+                    fill="currentColor"
+                    opacity="0.4"
+                  />
+                  <rect
+                    x="22"
+                    y="22"
+                    width="10"
+                    height="10"
+                    fill="currentColor"
+                    opacity="0.8"
+                  />
                 </svg>
               </div>
             </div>
 
-            <div className="text-center mb-10 max-w-4xl mx-auto">
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">SERVICIOS</h2>
-              <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-                <span className="text-white font-bold">Onca Mobile</span> es una solución móvil pensada para digitalizar y optimizar las operaciones
-                diarias de tu empresa. Integrada a tu sistema central o ERP, o en forma autónoma, permite
-                registrar transacciones y actividades clave justo cuando ocurren, desde cualquier dispositivo
-                Android, con o sin conexión en el momento.
+            <div className="text-center pt-6 max-w-4xl mx-auto">
+              <h2 className="text-5xl md:text-6xl font-poppins font-bold mb-6 tracking-tight">
+                SERVICIOS
+              </h2>
+              <p className="text-robotoCondensed text-lg md:text-xl text-gray-200 leading-relaxed text-left">
+                <span className="text-white robotoCondensed font-bold">
+                  Onca Mobile
+                </span>{" "}
+                es una solución móvil pensada para digitalizar y optimizar las
+                operaciones diarias de tu empresa. Integrada a tu sistema
+                central o ERP, o en forma autónoma, permite registrar
+                transacciones y actividades clave justo cuando ocurren, desde
+                cualquier dispositivo Android, con o sin conexión en el momento.
               </p>
             </div>
           </div>
-
-          {/* Title and description */}
-
-
-          {/* Services navigation */}
-
         </div>
       </div>
       <div className="py-5">
@@ -84,11 +145,12 @@ export default function ServicesPreview() {
           {serviceKeys.map((key) => (
             <Link
               key={key}
-              href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)}
+              href={getLocalizedPath(
+                `/servicios/${getServiceSlug(key, locale as "es" | "en")}`
+              )}
               onClick={() => handleServiceChange(key)}
               className={cn(
-                'px-4 py-2 text-black font-semibold transition-all duration-200 whitespace-nowrap hover:text-orange-500',
-
+                "px-4 py-2 text-black text-robotoCondensed font-light transition-all duration-200 whitespace-nowrap hover:text-orange-500"
               )}
             >
               <span className="mr-2">{serviceIcons[key]}</span>
@@ -107,20 +169,27 @@ export default function ServicesPreview() {
               {/* Orange panel with curve on right */}
               <div className="relative">
                 <div
-                  className="bg-gradient-to-br from-orange-500 to-orange-600 text-white pl-8 pr-16 py-10"
+                  className="bg-[#EA5B0C] text-white pl-8 pr-16 py-10"
                   style={{
-                    borderTopRightRadius: '120px',
-                    borderBottomRightRadius: '120px'
+                    borderTopRightRadius: "120px",
+                    borderBottomRightRadius: "120px",
                   }}
                 >
-                  <h3 className="text-lg font-bold mb-4 uppercase tracking-wide">
+                  <h3 className="text-lg text-poppins font-bold mb-4 uppercase tracking-wide">
                     PRINCIPALES BENEFICIOS
                   </h3>
-                  <ul className="space-y-2 text-sm leading-relaxed">
+                  <ul className="space-y-2 text-poppins text-md leading-1">
                     <li>Elimina tareas manuales y registros en papel</li>
-                    <li>Reduce errores de carga y evita la duplicación de tareas</li>
-                    <li>Información en tiempo real desde cualquier punto de operación</li>
-                    <li>Mejora la eficiencia operativa y la toma de decisiones</li>
+                    <li>
+                      Reduce errores de carga y evita la duplicación de tareas
+                    </li>
+                    <li>
+                      Información en tiempo real desde cualquier punto de
+                      operación
+                    </li>
+                    <li>
+                      Mejora la eficiencia operativa y la toma de decisiones
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -130,19 +199,26 @@ export default function ServicesPreview() {
                 <div
                   className="bg-white text-gray-900 pl-8 pr-16 py-10"
                   style={{
-                    borderTopRightRadius: '120px',
-                    borderBottomRightRadius: '120px'
+                    borderTopRightRadius: "120px",
+                    borderBottomRightRadius: "120px",
                   }}
                 >
-                  <h3 className="text-lg font-bold mb-4 uppercase tracking-wide">
+                  <h3 className="text-lg text-poppins font-bold  uppercase tracking-wide">
                     PRINCIPALES CARACTERÍSTICAS
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray-700">
-                    App móvil para Android: teléfonos, tablets, colectoras de datos<br />
-                    Captura de datos en tiempo real, en el momento y lugar del hecho<br />
-                    Integración flexible con ERPs o uso autónomo<br />
-                    Sincronización bidireccional online/offline<br />
-                    Módulos configurables: pedidos, cobranzas, inventario, entregas, visitas y más
+                  <p className="text-poppins text-md text-gray-700">
+                    App móvil para Android: teléfonos, tablets, colectoras de
+                    datos
+                    <br />
+                    Captura de datos en tiempo real, en el momento y lugar del
+                    hecho
+                    <br />
+                    Integración flexible con ERPs o uso autónomo
+                    <br />
+                    Sincronización bidireccional online/offline
+                    <br />
+                    Módulos configurables: pedidos, cobranzas, inventario,
+                    entregas, visitas y más
                   </p>
                 </div>
               </div>
@@ -152,10 +228,16 @@ export default function ServicesPreview() {
             <div className="flex justify-center relative ">
               <div className="relative">
                 {/* FPO Labels */}
-                <div className="absolute top-20 right-48 text-7xl font-bold text-gray-400 opacity-30 select-none pointer-events-none z-20" style={{ letterSpacing: '0.1em' }}>
+                <div
+                  className="absolute top-20 right-48 text-7xl font-bold text-gray-400 opacity-30 select-none pointer-events-none z-20"
+                  style={{ letterSpacing: "0.1em" }}
+                >
                   FPO
                 </div>
-                <div className="absolute bottom-20 -left-8 text-7xl font-bold text-gray-400 opacity-30 select-none pointer-events-none z-20" style={{ letterSpacing: '0.1em' }}>
+                <div
+                  className="absolute bottom-20 -left-8 text-7xl font-bold text-gray-400 opacity-30 select-none pointer-events-none z-20"
+                  style={{ letterSpacing: "0.1em" }}
+                >
                   FPO
                 </div>
 
@@ -163,8 +245,9 @@ export default function ServicesPreview() {
                 <div
                   className="relative z-10"
                   style={{
-                    transform: 'perspective(1000px) rotateY(-8deg) rotateX(2deg)',
-                    transformStyle: 'preserve-3d'
+                    transform:
+                      "perspective(1000px) rotateY(-8deg) rotateX(2deg)",
+                    transformStyle: "preserve-3d",
                   }}
                 >
                   <div className="w-80 h-[650px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[3.5rem] p-4 shadow-2xl border-[6px] border-orange-500">
@@ -177,7 +260,9 @@ export default function ServicesPreview() {
                         {/* Top bar with logo and icons */}
                         <div className="absolute top-8 left-0 right-0 px-6 flex justify-between items-center">
                           <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">ERP</span>
+                            <span className="text-white text-xs font-bold">
+                              ERP
+                            </span>
                           </div>
                           <div className="flex gap-2">
                             <div className="w-6 h-6 rounded-full bg-gray-300" />
@@ -189,35 +274,63 @@ export default function ServicesPreview() {
                         {/* Blue circle icon */}
                         <div className="absolute top-24 right-6">
                           <div className="w-12 h-12 rounded-full border-2 border-blue-400 flex items-center justify-center">
-                            <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <svg
+                              className="w-6 h-6 text-blue-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                              />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
                             </svg>
                           </div>
                         </div>
 
                         {/* Main content area */}
                         <div className="absolute top-40 left-6 right-6">
-                          <div className="text-gray-700 text-xs mb-2">Usuario</div>
+                          <div className="text-gray-700 text-xs mb-2">
+                            Usuario
+                          </div>
                           <div className="h-px bg-gray-300 mb-6" />
 
-                          <div className="text-gray-700 text-xs mb-2">Contraseña</div>
+                          <div className="text-gray-700 text-xs mb-2">
+                            Contraseña
+                          </div>
                           <div className="h-px bg-gray-300 mb-4" />
 
                           {/* Orange play button */}
                           <div className="flex justify-center my-8">
                             <button
-                              onClick={() => trackEvents.videoPlay(activeService)}
+                              onClick={() =>
+                                trackEvents.videoPlay(activeService)
+                              }
                               className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                             >
-                              <Play size={28} className="text-white ml-1" fill="white" />
+                              <Play
+                                size={28}
+                                className="text-white ml-1"
+                                fill="white"
+                              />
                             </button>
                           </div>
 
                           {/* Chart placeholder */}
                           <div className="bg-white rounded-lg p-3 shadow-sm border border-gray-200">
                             <div className="h-24 bg-gradient-to-r from-blue-100 to-blue-50 rounded relative overflow-hidden">
-                              <svg className="w-full h-full" viewBox="0 0 200 80">
+                              <svg
+                                className="w-full h-full"
+                                viewBox="0 0 200 80"
+                              >
                                 <polyline
                                   points="0,60 40,45 80,50 120,30 160,35 200,20"
                                   fill="none"
