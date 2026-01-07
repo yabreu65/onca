@@ -13,7 +13,7 @@ import Analytics from '@/components/layout/Analytics';
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat', display: 'swap' });
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-opensans', display: 'swap' });
 const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'], variable: '--font-poppins', display: 'swap' });
-const robotoCondensed = Roboto_Condensed({ subsets: ['latin'], variable: '--font-roboto-condensed', display: 'swap' });
+const robotoCondensed = Roboto_Condensed({ weight: ['300', '400', '700'], subsets: ['latin'], variable: '--font-roboto-condensed', display: 'swap' });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -39,7 +39,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${montserrat.variable} ${openSans.variable}`}>
+    <html lang={locale} className={`${montserrat.variable} ${openSans.variable} ${poppins.variable} ${robotoCondensed.variable}`}>
       <head><Analytics /></head>
       <body className="font-opensans antialiased">
         <NextIntlClientProvider messages={messages}>

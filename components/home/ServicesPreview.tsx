@@ -31,8 +31,8 @@ export default function ServicesPreview() {
   return (
     <section id="servicios" className="w-full">
       {/* Top contact bar */}
-      <div className="bg-gray-900 text-white py-4">
-        <div className="max-w-7xl mx-auto px-4 flex justify-center gap-8 text-sm">
+      <div className="bg-[#1D1D1B] text-white py-6">
+        <div className="max-w-7xl mx-auto  font-roboto text-xl px-4 flex justify-center gap-8">
           <span>+54 11 333 3333</span>
           <span>mail@oncait.com.ar</span>
         </div>
@@ -70,64 +70,21 @@ export default function ServicesPreview() {
           {/* Logo */}
           <div className="flex">
             <div className="pt-8">
-              <div className="w-12 h-12 bg-blue-800/50 rounded-lg flex items-center justify-center border border-blue-700/50">
-                <svg
-                  className="w-8 h-8"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="4"
-                    y="4"
-                    width="32"
-                    height="32"
-                    rx="2"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <rect
-                    x="8"
-                    y="8"
-                    width="10"
-                    height="10"
-                    fill="currentColor"
-                    opacity="0.6"
-                  />
-                  <rect
-                    x="22"
-                    y="8"
-                    width="10"
-                    height="10"
-                    fill="currentColor"
-                    opacity="0.4"
-                  />
-                  <rect
-                    x="8"
-                    y="22"
-                    width="10"
-                    height="10"
-                    fill="currentColor"
-                    opacity="0.4"
-                  />
-                  <rect
-                    x="22"
-                    y="22"
-                    width="10"
-                    height="10"
-                    fill="currentColor"
-                    opacity="0.8"
-                  />
-                </svg>
-              </div>
+              <Image
+                src="/images/logo-page.svg"
+                alt="Logo"
+                width={120}
+                height={120}
+                className="pointer-events-none w-14"
+              />
             </div>
 
             <div className="text-center pt-6 max-w-4xl mx-auto">
               <h2 className="text-5xl md:text-6xl font-poppins font-bold mb-6 tracking-tight">
                 SERVICIOS
               </h2>
-              <p className="text-robotoCondensed text-lg md:text-xl text-gray-200 leading-relaxed text-left">
-                <span className="text-white robotoCondensed font-bold">
+              <p className="font-roboto text-lg md:text-2xl text-gray-200 leading-relaxed text-left">
+                <span className="text-white font-roboto font-bold">
                   Onca Mobile
                 </span>{" "}
                 es una solución móvil pensada para digitalizar y optimizar las
@@ -141,7 +98,7 @@ export default function ServicesPreview() {
         </div>
       </div>
       <div className="py-5">
-        <div className="flex flex-wrap justify-center gap-2 md:gap-12 text-sm">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-6 text-md">
           {serviceKeys.map((key) => (
             <Link
               key={key}
@@ -150,10 +107,10 @@ export default function ServicesPreview() {
               )}
               onClick={() => handleServiceChange(key)}
               className={cn(
-                "px-4 py-2 text-black text-robotoCondensed font-light transition-all duration-200 whitespace-nowrap hover:text-orange-500"
+                "font-roboto px-4 py-2 text-black  font-normal transition-all duration-200 whitespace-nowrap hover:text-orange-500"
               )}
             >
-              <span className="mr-2">{serviceIcons[key]}</span>
+              {/*<span className="mr-2">{serviceIcons[key]}</span>*/}
               {t(`tabs.${key}`)}
             </Link>
           ))}

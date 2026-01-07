@@ -26,6 +26,8 @@ const config: Config = {
       fontFamily: {
         montserrat: ['var(--font-montserrat)', 'sans-serif'],
         opensans: ['var(--font-opensans)', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'sans-serif'],
+        roboto: ['var(--font-roboto-condensed)', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

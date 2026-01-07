@@ -75,7 +75,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="absolute right-8 bottom-32 hidden lg:block animate-fade-in animate-delay-400">
+        <div className="absolute right-8 bottom-12 hidden lg:block animate-fade-in animate-delay-400">
           <div className="px-6 py-4 text-white text-left">
             <p className="text-xl font-light">
               {heroSlides[currentSlide].client}

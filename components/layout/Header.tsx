@@ -42,13 +42,13 @@ export default function Header() {
   return (
     <>
       {/* Barra superior gris oscuro */}
-      <div className="bg-gray-900 text-white text-sm py-4 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 flex justify-center gap-8">
+      <div className="bg-[#1D1D1B] text-white text-sm py-4 hidden md:block">
+        <div className="max-w-7xl text-xl font-roboto mx-auto px-4 flex justify-center gap-32">
           <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 hover:text-onca-orange transition-colors">
-            <Phone size={14} />{siteConfig.phone}
+            <Phone size={0} />{siteConfig.phone}
           </a>
           <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 hover:text-onca-orange transition-colors">
-            <Mail size={14} />{siteConfig.email}
+            <Mail size={0} />{siteConfig.email}
           </a>
         </div>
       </div>
@@ -59,12 +59,20 @@ export default function Header() {
         <div className="absolute inset-0 bg-white" />
 
         {/* Fondo naranja con forma diagonal usando SVG */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20,0 C19,25 19,75 20,100 H100 V0 Z" fill="#EA5B0C" />
-        </svg>
+        <div className="absolute inset-0 flex justify-end">
+          <svg
+            style={{ width: "95%" }}
+            className="h-full pointer-events-none"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M20,0 C19,25 19,75 20,100 H100 V0 Z" fill="#EA5B0C" />
+          </svg>
+        </div>
 
         {/* Contenido del header con flexbox */}
-        <div className="max-w-7xl xl:max-w-[90%] mx-auto py-2 relative">
+        <div className="max-w-7xl xl:max-w-[95%] mx-auto py-6 relative">
           <div className="flex items-center justify-between h-20">
             {/* Logo - sobre fondo blanco */}
             <Link href={getLocalizedPath('/')} className="relative z-10 sm:scale-100 scale-90">
@@ -72,12 +80,12 @@ export default function Header() {
             </Link>
 
             {/* Navegación desktop - sobre fondo naranja */}
-            <nav className="hidden md:flex items-center gap-8 relative z-10">
+            <nav className="hidden font-roboto font-normal text-2xl lg:flex items-center  xl:gap-6 2xl:gap-12 relative z-10">
               {navItems.map((item) => (
                 <div key={item.href} className="relative group">
                   {item.hasDropdown ? (
                     <button
-                      className="text-white hover:text-white/80 font-medium transition-colors duration-200 flex items-center gap-1"
+                      className="text-white hover:text-white/80 font-roboto text-2xl font-light transition-colors duration-200 flex items-center gap-1"
                       onMouseEnter={() => setServicesOpen(true)}
                       onMouseLeave={() => setServicesOpen(false)}
                     >
@@ -87,7 +95,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-white hover:text-white/80 font-poppins font-semibold text-md transition-colors duration-200"
+                      className="text-white hover:text-white/80 font-roboto font-light text-md transition-colors duration-200"
                     >
                       {item.label}
                     </Link>
@@ -129,7 +137,7 @@ export default function Header() {
             </nav>
 
             {/* Botones derecha - sobre fondo naranja */}
-            <div className="hidden lg:flex items-center gap-4 relative z-10">
+            <div className="hidden lg:flex font-roboto text-xl items-center gap-4 relative z-10">
               <LanguageSwitcher />
               <Link
                 href={getLocalizedPath('/#contacto')}
