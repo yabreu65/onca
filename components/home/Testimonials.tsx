@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials } from "@/lib/utils";
 
 export default function Testimonials() {
   const t = useTranslations("testimonials");
-  const locale = useLocale() as "es" | "en";
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -50,59 +49,16 @@ export default function Testimonials() {
     <section id="casos-de-exito" className="relative overflow-hidden">
       {/* Orange header */}
       <div className="bg-[#EA5B0C] py-8">
-        <div className="max-w-7xl mx-auto px-4 flex items-center">
+        <div className="max-w-7xl mx-auto px-8 flex items-center">
           {/* Logo */}
-          <div className="mr-auto">
-            <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center border border-white/30">
-              <svg
-                className="w-8 h-8 text-white"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  x="4"
-                  y="4"
-                  width="32"
-                  height="32"
-                  rx="2"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <rect
-                  x="8"
-                  y="8"
-                  width="10"
-                  height="10"
-                  fill="currentColor"
-                  opacity="0.6"
-                />
-                <rect
-                  x="22"
-                  y="8"
-                  width="10"
-                  height="10"
-                  fill="currentColor"
-                  opacity="0.4"
-                />
-                <rect
-                  x="8"
-                  y="22"
-                  width="10"
-                  height="10"
-                  fill="currentColor"
-                  opacity="0.4"
-                />
-                <rect
-                  x="22"
-                  y="22"
-                  width="10"
-                  height="10"
-                  fill="currentColor"
-                  opacity="0.8"
-                />
-              </svg>
-            </div>
+          <div className="">
+            <Image
+              src="/images/logo-page.svg"
+              alt="Logo"
+              width={120}
+              height={120}
+              className="pointer-events-none  w-16"
+            />
           </div>
 
           {/* Title */}
@@ -157,9 +113,9 @@ export default function Testimonials() {
                                   </span>
                                 )}
                               </p>
-                              <p className="text-gray-600 text-[10px] leading-relaxed italic">
+                              <p className="text-gray-600 text-[12px] font-semibold leading-relaxed italic">
                                 "
-                                {card.quote[locale].replace(
+                                {card.quote.replace(
                                   /^"?ONCA Mobile\s*/i,
                                   ""
                                 )}
@@ -203,9 +159,8 @@ export default function Testimonials() {
                   setIsAutoPlaying(false);
                   setCurrentIndex(index);
                 }}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-orange-500" : "bg-gray-300"
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? "bg-orange-500" : "bg-gray-300"
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

@@ -17,26 +17,26 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div>
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+        <div className="flex flex-wrap gap-8">
+          <div className="w-full md:w-[calc(50%-1rem)] xl:w-[calc(25%-1.5rem)]">
             <Logo variant="white" />
             <p className="mt-4 text-gray-400 text-sm">{t('description')}</p>
           </div>
-          <div>
+          <div className="w-full md:w-[calc(50%-1rem)] xl:w-[calc(25%-1.5rem)]">
             <h4 className="font-bold text-lg mb-4">{t('services')}</h4>
-            <ul className="space-y-2">
-              {serviceKeys.map((key) => (<li key={key}><Link href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)} className="text-gray-400 hover:text-onca-orange transition-colors text-sm">{tServices(key)}</Link></li>))}
+            <ul className="flex flex-col gap-2">
+              {serviceKeys.map((key) => (<li key={key}><Link href={getLocalizedPath(`/servicios/${getServiceSlug(key)}`)} className="text-gray-400 hover:text-onca-orange transition-colors text-sm block">{tServices(key)}</Link></li>))}
             </ul>
           </div>
-          <div>
+          <div className="w-full md:w-[calc(50%-1rem)] xl:w-[calc(25%-1.5rem)]">
             <h4 className="font-bold text-lg mb-4">{t('contact')}</h4>
             <ul className="space-y-3">
               <li><a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 text-gray-400 hover:text-onca-orange text-sm"><Phone size={16} />{siteConfig.phone}</a></li>
               <li><a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 text-gray-400 hover:text-onca-orange text-sm"><Mail size={16} />{siteConfig.email}</a></li>
             </ul>
           </div>
-          <div>
+          <div className="w-full md:w-[calc(50%-1rem)] xl:w-[calc(25%-1.5rem)]">
             <h4 className="font-bold text-lg mb-4">{t('follow')}</h4>
             <div className="flex gap-3">
               <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-onca-orange transition-colors"><Linkedin size={20} /></a>

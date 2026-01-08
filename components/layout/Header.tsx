@@ -8,7 +8,7 @@ import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
 import { cn, siteConfig, serviceKeys, getServiceSlug } from '@/lib/utils';
 import { trackEvents } from '@/lib/analytics';
 import Logo from '@/components/ui/Logo';
-import LanguageSwitcher from './LanguageSwitcher';
+import Image from "next/image";
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -42,8 +42,8 @@ export default function Header() {
   return (
     <>
       {/* Barra superior gris oscuro */}
-      <div className="bg-[#1D1D1B] text-white text-sm py-4 hidden md:block">
-        <div className="max-w-7xl text-xl font-roboto mx-auto px-4 flex justify-center gap-32">
+      <div className="bg-[#1D1D1B] text-white py-4 md:block">
+        <div className="text-xs md:text-xl font-roboto  px-4 flex justify-center gap-12 md:gap-32">
           <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 hover:text-onca-orange transition-colors">
             <Phone size={0} />{siteConfig.phone}
           </a>
@@ -54,35 +54,33 @@ export default function Header() {
       </div>
 
       {/* Header principal con diagonal usando flexbox */}
-      <header className={cn('sticky top-0 z-50 transition-all duration-300', isScrolled ? 'shadow-lg' : '')}>
+      <header className={cn('sticky max-[400px]:px-0 px-6 xl:pl-12 top-0 z-50 transition-all duration-300', isScrolled ? 'shadow-lg' : '')}>
         {/* Fondo blanco base */}
         <div className="absolute inset-0 bg-white" />
 
         {/* Fondo naranja con forma diagonal usando SVG */}
         <div className="absolute inset-0 flex justify-end">
-          <svg
-            style={{ width: "95%" }}
-            className="h-full pointer-events-none"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M20,0 C19,25 19,75 20,100 H100 V0 Z" fill="#EA5B0C" />
-          </svg>
+           <Image
+                    src="/images/test2.svg"
+                    alt="Ecosystem"
+                    width={120}
+                    height={120}
+                     className="pointer-events-none w-[70%] lg:w-[80%]"
+                  />
         </div>
 
         {/* Contenido del header con flexbox */}
-        <div className="max-w-7xl xl:max-w-[95%] mx-auto py-6 relative">
+        <div className=" xl:max-w-[95%]  py-0 md:py-6 relative">
           <div className="flex items-center justify-between h-20">
             {/* Logo - sobre fondo blanco */}
-            <Link href={getLocalizedPath('/')} className="relative z-10 sm:scale-100 scale-90">
+            <Link href={getLocalizedPath('/')} className="relative z-10 scale-90">
               <Logo />
             </Link>
 
             {/* Navegación desktop - sobre fondo naranja */}
-            <nav className="hidden font-roboto font-normal text-2xl lg:flex items-center  xl:gap-6 2xl:gap-12 relative z-10">
+            <nav className="hidden font-roboto font-normal text-2xl lg:flex items-center  relative z-10">
               {navItems.map((item) => (
-                <div key={item.href} className="relative group">
+                <div key={item.href} className="relative group px-4">
                   {item.hasDropdown ? (
                     <button
                       className="text-white hover:text-white/80 font-roboto text-2xl font-light transition-colors duration-200 flex items-center gap-1"
@@ -116,7 +114,7 @@ export default function Header() {
                         {serviceKeys.map((key) => (
                           <Link
                             key={key}
-                            href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)}
+                            href={getLocalizedPath(`/servicios/${getServiceSlug(key)}`)}
                             className="block px-4 py-3 rounded-lg hover:bg-onca-orange/10 text-gray-700 hover:text-onca-orange transition-colors"
                           >
                             {tServices(key)}
@@ -137,8 +135,7 @@ export default function Header() {
             </nav>
 
             {/* Botones derecha - sobre fondo naranja */}
-            <div className="hidden lg:flex font-roboto text-xl items-center gap-4 relative z-10">
-              <LanguageSwitcher />
+            <div className="hidden lg:flex font-roboto lg:text-md xl:text-xl items-center gap-4 relative z-10">
               <Link
                 href={getLocalizedPath('/#contacto')}
                 className="btn-primary"
@@ -150,7 +147,7 @@ export default function Header() {
 
             {/* Botón menú móvil */}
             <button
-              className="lg:hidden p-2 rounded-lg hover:bg-onca-orange-dark text-white relative z-10"
+              className="lg:hidden p-2 rounded-lg hover:bg-onca-orange-dark text-white  relative z-10"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -179,7 +176,7 @@ export default function Header() {
                       {serviceKeys.map((key) => (
                         <Link
                           key={key}
-                          href={getLocalizedPath(`/servicios/${getServiceSlug(key, locale as 'es' | 'en')}`)}
+                          href={getLocalizedPath(`/servicios/${getServiceSlug(key)}`)}
                           className="block py-2 px-4 text-gray-600 hover:text-onca-orange"
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -200,10 +197,6 @@ export default function Header() {
               </div>
             ))}
             <hr className="my-2" />
-            <div className="flex items-center justify-between px-4 py-2">
-              <span className="text-gray-600">Idioma</span>
-              <LanguageSwitcher />
-            </div>
             <Link
               href={getLocalizedPath('/#contacto')}
               className="btn-primary text-center mt-2"

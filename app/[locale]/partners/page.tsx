@@ -16,12 +16,17 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
             {partners.map((partner, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-onca-orange/10 hover:shadow-lg transition-all cursor-default group">
-                <span className="text-gray-700 font-semibold text-center group-hover:text-onca-orange transition-colors">{partner}</span>
+              <div key={index} className="relative h-24 flex items-center justify-center transition-all duration-300 hover:scale-105">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  fill
+                  className="object-contain p-4"
+                />
               </div>
             ))}
           </div>

@@ -31,8 +31,8 @@ export default function ServicesPreview() {
   return (
     <section id="servicios" className="w-full">
       {/* Top contact bar */}
-      <div className="bg-[#1D1D1B] text-white py-6">
-        <div className="max-w-7xl mx-auto  font-roboto text-xl px-4 flex justify-center gap-8">
+      <div className="bg-[#1D1D1B] text-white py-2 md:py-6">
+        <div className="max-w-7xl mx-auto  font-roboto text-xs md:text-xl px-4 flex justify-center gap-8">
           <span>+54 11 333 3333</span>
           <span>mail@oncait.com.ar</span>
         </div>
@@ -66,7 +66,7 @@ export default function ServicesPreview() {
           />
         </div>
 
-        <div className="max-w-[90%] mx-auto px-4 pb-6 relative z-10">
+        <div className="max-w-[94%] mx-auto  pb-6 relative z-10">
           {/* Logo */}
           <div className="flex">
             <div className="pt-8">
@@ -75,7 +75,7 @@ export default function ServicesPreview() {
                 alt="Logo"
                 width={120}
                 height={120}
-                className="pointer-events-none w-14"
+                className="pointer-events-none w-72 lg:w-16"
               />
             </div>
 
@@ -98,16 +98,16 @@ export default function ServicesPreview() {
         </div>
       </div>
       <div className="py-5">
-        <div className="flex flex-wrap justify-center gap-2 md:gap-6 text-md">
+        <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-2 md:gap-6 text-sm md:text-md">
           {serviceKeys.map((key) => (
             <Link
               key={key}
               href={getLocalizedPath(
-                `/servicios/${getServiceSlug(key, locale as "es" | "en")}`
+                `/servicios/${getServiceSlug(key)}`
               )}
               onClick={() => handleServiceChange(key)}
               className={cn(
-                "font-roboto px-4 py-2 text-black  font-normal transition-all duration-200 whitespace-nowrap hover:text-orange-500"
+                "font-roboto px-4 py-2 text-black font-normal transition-all duration-200 text-center md:whitespace-nowrap hover:text-orange-500"
               )}
             >
               {/*<span className="mr-2">{serviceIcons[key]}</span>*/}
@@ -122,20 +122,20 @@ export default function ServicesPreview() {
         <div className="max-w-9xl mx-auto">
           <div className="grid lg:grid-cols-2  items-center">
             {/* Left side - Curved panels */}
-            <div className="space-y-6 relative z-10" key={activeService}>
+            <div className="space-y-6 relative z-10 w-[90%]" key={activeService}>
               {/* Orange panel with curve on right */}
               <div className="relative">
                 <div
-                  className="bg-[#EA5B0C] text-white pl-8 pr-16 py-10"
+                  className="bg-[#EA5B0C] text-white pl-20 pr-16 py-3"
                   style={{
                     borderTopRightRadius: "120px",
                     borderBottomRightRadius: "120px",
                   }}
                 >
-                  <h3 className="text-lg text-poppins font-bold mb-4 uppercase tracking-wide">
+                  <h3 className="text-xl font-roboto font-bold mb-1 uppercase tracking-wide">
                     PRINCIPALES BENEFICIOS
                   </h3>
-                  <ul className="space-y-2 text-poppins text-md leading-1">
+                  <ul className="md:space-y-1 font-roboto text-lg leading-1">
                     <li>Elimina tareas manuales y registros en papel</li>
                     <li>
                       Reduce errores de carga y evita la duplicación de tareas
@@ -154,16 +154,16 @@ export default function ServicesPreview() {
               {/* White panel with curve on right */}
               <div className="relative">
                 <div
-                  className="bg-white text-gray-900 pl-8 pr-16 py-10"
+                  className="bg-white text-gray-900 pl-20 pr-16 py-3"
                   style={{
                     borderTopRightRadius: "120px",
                     borderBottomRightRadius: "120px",
                   }}
                 >
-                  <h3 className="text-lg text-poppins font-bold  uppercase tracking-wide">
+                  <h3 className="text-xl font-roboto font-bold uppercase tracking-wide">
                     PRINCIPALES CARACTERÍSTICAS
                   </h3>
-                  <p className="text-poppins text-md text-gray-700">
+                  <p className="font-roboto text-lg text-gray-700">
                     App móvil para Android: teléfonos, tablets, colectoras de
                     datos
                     <br />
@@ -182,7 +182,7 @@ export default function ServicesPreview() {
             </div>
 
             {/* Right side - Phone mockup */}
-            <div className="flex justify-center relative ">
+            <div className="flex justify-center relative max-lg:pt-12 ">
               <div className="relative">
                 {/* FPO Labels */}
                 <div

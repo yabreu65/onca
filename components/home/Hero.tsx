@@ -35,7 +35,7 @@ export default function Hero() {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] overflow-hidden bg-gray-900">
+    <section className="relative h-[60vh] md:h-[85vh] overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       {heroSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -48,29 +48,31 @@ export default function Hero() {
             src={slide.image}
             alt={slide.client}
             fill
-            className="object-cover"
+            className="object-cover object-center md:object-cover"
+            style={{ objectPosition: 'center center' }}
             priority={index === 0}
             quality={90}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+          {/* Overlay gradient para mejorar legibilidad del texto */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
         </div>
       ))}
 
       <div className="relative z-10 h-full max-w-7xl mx-auto px-4 flex items-center">
         <div className="max-w-2xl">
           <h1 className="text-white mb-6 animate-fade-in">
-            <span className="block mb-4 text-5xl md:text-6xl lg:text-7xl font-poppins  font-bold leading-[2]">
+            <span className="block md:mb-4 text-3xl md:text-6xl lg:text-7xl font-poppins  font-bold leading-[2]">
               {t("line1")}
             </span>
-            <span className="block mb-4 text-5xl md:text-6xl lg:text-7xl font-poppins font-bold leading-[2]">
+            <span className="block md:mb-4 text-3xl md:text-6xl lg:text-7xl font-poppins font-bold leading-[2]">
               {t("line2")}
             </span>
-            <span className="block  text-5xl md:text-6xl lg:text-7xl font-poppins font-bold leading-[2]">
+            <span className="block  text-3xl md:text-6xl lg:text-7xl font-poppins font-bold leading-[2]">
               {t("line3")}
             </span>
           </h1>
-          <p className="text-white/90 text-xl md:text-3xl font-poppins font-bold mb-4 tracking-wide animate-fade-in animate-delay-200">
+          <p className="text-white/90 text-lg md:text-3xl font-poppins font-bold mb-4 tracking-wide animate-fade-in animate-delay-200">
             {t("subtitle")}
           </p>
         </div>
