@@ -32,12 +32,12 @@ export default function Partners() {
           </div>
         </div>
         <div className="w-full bg-[#005094] py-4">
-          <p className="font-poppins  max-w-3xl mx-auto text-blue-100 text-[10px] md:text-[13px] text-center font-semibold">
+          <p className="font-roboto  max-w-3xl mx-auto text-blue-100 text-[10px] md:text-[13px] text-center font-semibold">
             {t("description")}
           </p>
         </div>
 
-        <div className="bg-orange-200 flex flex-wrap justify-center items-center gap-6 px-8 pb-16 pt-12">
+        <div className="bg-white flex flex-wrap justify-center items-center gap-6 px-8 pb-16 pt-12">
           {partners.map((partner, index) => (
             <div
               key={index}
