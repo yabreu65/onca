@@ -14,7 +14,7 @@ export default function Testimonials() {
 
   // Detectar móvil
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1100);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -48,7 +48,7 @@ export default function Testimonials() {
   return (
     <section id="casos-de-exito" className="relative overflow-hidden">
       {/* Orange header */}
-      <div className="bg-[#EA5B0C] py-8">
+      <div className="bg-onca-orange py-8">
         <div className="max-w-7xl mx-auto px-8 flex items-center">
           {/* Logo */}
           <div className="">
@@ -81,7 +81,7 @@ export default function Testimonials() {
             >
               {Array.from({ length: maxIndex }).map((_, pageIndex) => (
                 <div key={pageIndex} className="w-full flex-shrink-0 px-2">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-3'} gap-6`}>
                     {testimonials
                       .slice(
                         pageIndex * itemsPerPage,
@@ -91,7 +91,7 @@ export default function Testimonials() {
                         <div key={cardIndex} className="flex pb-6">
                           <div className="rounded-2xl shadow-lg h-full flex flex-col w-full relative overflow-visible">
                             {/* Image */}
-                            <div className="h-[400px] md:h-[500px] relative overflow-hidden rounded-2xl">
+                            <div className="h-[400px] sm:h-[600px]  xl:h-[500px] relative overflow-hidden rounded-2xl">
                               <Image
                                 src={card.image}
                                 alt={card.name}
@@ -101,11 +101,11 @@ export default function Testimonials() {
                               />
                             </div>
                             {/* Content */}
-                            <div className="w-[85%] md:w-[70%] absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white/70 backdrop-blur-sm rounded-2xl p-5 shadow-lg">
+                            <div className="w-[85%] md:w-[70%] absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-service-light opacity-70 rounded-2xl p-5 shadow-lg">
                               <h3 className="font-bold text-poppins text-gray-900 text-md uppercase mb-0">
                                 {card.company}
                               </h3>
-                              <p className="text-poppins text-sm text-gray-900 font-medium mb-3">
+                              <p className="text-poppins text-sm text-gray-900 font-bold mb-3">
                                 {card.name}
                                 {"role" in card && card.role && (
                                   <span className="block text-[10px] text-gray-500 mt-0.5">
@@ -113,7 +113,7 @@ export default function Testimonials() {
                                   </span>
                                 )}
                               </p>
-                              <p className="text-gray-600 text-[12px] font-semibold leading-relaxed italic">
+                              <p className="text-gray-600 text-[12px] font-bold leading-relaxed italic">
                                 "
                                 {card.quote.replace(
                                   /^"?ONCA Mobile\s*/i,
@@ -159,7 +159,7 @@ export default function Testimonials() {
                   setIsAutoPlaying(false);
                   setCurrentIndex(index);
                 }}
-                className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? "bg-orange-500" : "bg-gray-300"
+                className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? "bg-onca-orange" : "bg-gray-300"
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

@@ -11,7 +11,7 @@ export default function ContactCTA() {
   return (
     <section
       id="contacto"
-      className="relative overflow-hidden h-[60vh] lg:h-[80vh] flex  items-center py-8 md:py-16"
+      className="relative overflow-hidden h-[50vh] xl:h-[80vh] flex  items-center py-8 md:py-16"
       style={{
         background: "#0a1f3d",
         backgroundImage: "url('/images/bg-Firefly.jpg')",

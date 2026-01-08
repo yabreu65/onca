@@ -10,17 +10,18 @@ const config: Config = {
     extend: {
       colors: {
         onca: {
-          orange: '#F57C00',
+          orange: '#F36432',
           'orange-dark': '#E65100',
           'orange-light': '#FFB74D',
         },
         dark: {
-          DEFAULT: '#1A1A1A',
+          DEFAULT: '#1D1D1B',
           lighter: '#2D2D2D',
         },
         service: {
-          blue: '#1565C0',
+          blue: '#035099',
           'blue-light': '#42A5F5',
+          'light':'#E1E1E1'
         },
       },
       fontFamily: {

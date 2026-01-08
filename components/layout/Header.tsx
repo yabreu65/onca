@@ -78,12 +78,12 @@ export default function Header() {
             </Link>
 
             {/* Navegación desktop - sobre fondo naranja */}
-            <nav className="hidden font-roboto font-normal text-2xl lg:flex items-center  relative z-10">
+            <nav className="hidden font-roboto font-normal text-lg xl:text-2xl lg:flex items-center  relative z-10">
               {navItems.map((item) => (
                 <div key={item.href} className="relative group px-4">
                   {item.hasDropdown ? (
                     <button
-                      className="text-white hover:text-white/80 font-roboto text-2xl font-light transition-colors duration-200 flex items-center gap-1"
+                      className="text-white hover:text-white/80 font-roboto text-lg xl:text-2xl font-light transition-colors duration-200 flex items-center gap-1"
                       onMouseEnter={() => setServicesOpen(true)}
                       onMouseLeave={() => setServicesOpen(false)}
                     >
@@ -135,7 +135,7 @@ export default function Header() {
             </nav>
 
             {/* Botones derecha - sobre fondo naranja */}
-            <div className="hidden lg:flex font-roboto lg:text-md xl:text-xl items-center gap-4 relative z-10">
+            <div className="hidden lg:flex font-roboto lg:text-lg xl:text-xl items-center gap-4 relative z-10">
               <Link
                 href={getLocalizedPath('/#contacto')}
                 className="btn-primary"

@@ -73,7 +73,7 @@ export const partners = [
   { name: 'Acudir', logo: '/images/partners/acudir.png' },
   { name: 'Allub', logo: '/images/partners/allub.gif' },
   { name: 'Chisap', logo: '/images/partners/chisap.png' },
-  { name: 'Celulosa', logo: '/images/partners/celulosa.gif' },
+  { name: 'Celulosa', logo: '/images/partners/celulosa.' },
   { name: 'Daedaz', logo: '/images/partners/daedaz.png' },
   { name: 'ElectroOutlet', logo: '/images/partners/electrooutlet.png' },
   { name: 'Fresh', logo: '/images/partners/fresh.png' },

@@ -107,7 +107,7 @@ export default function ServicesPreview() {
               )}
               onClick={() => handleServiceChange(key)}
               className={cn(
-                "font-roboto px-4 py-2 text-black font-normal transition-all duration-200 text-center md:whitespace-nowrap hover:text-orange-500"
+                "font-roboto px-4 py-2 text-black font-normal transition-all duration-200 text-center md:whitespace-nowrap hover:text-onca-orange"
               )}
             >
               {/*<span className="mr-2">{serviceIcons[key]}</span>*/}
@@ -126,16 +126,16 @@ export default function ServicesPreview() {
               {/* Orange panel with curve on right */}
               <div className="relative">
                 <div
-                  className="bg-[#EA5B0C] text-white pl-20 pr-16 py-3"
+                  className="bg-onca-orange text-white pl-20 pr-16 py-3"
                   style={{
                     borderTopRightRadius: "120px",
                     borderBottomRightRadius: "120px",
                   }}
                 >
-                  <h3 className="text-xl font-roboto font-bold mb-1 uppercase tracking-wide">
+                  <h3 className="text-sm lg:text-xl font-roboto font-bold mb-1 uppercase tracking-wide">
                     PRINCIPALES BENEFICIOS
                   </h3>
-                  <ul className="md:space-y-1 font-roboto text-lg leading-1">
+                  <ul className="md:space-y-1 font-roboto text-xs lg:text-lg leading-1">
                     <li>Elimina tareas manuales y registros en papel</li>
                     <li>
                       Reduce errores de carga y evita la duplicación de tareas
@@ -160,10 +160,10 @@ export default function ServicesPreview() {
                     borderBottomRightRadius: "120px",
                   }}
                 >
-                  <h3 className="text-xl font-roboto font-bold uppercase tracking-wide">
+                  <h3 className="text-sm lg:text-xl font-roboto font-bold uppercase tracking-wide">
                     PRINCIPALES CARACTERÍSTICAS
                   </h3>
-                  <p className="font-roboto text-lg text-gray-700">
+                  <p className="font-roboto text-xs lg:text-lg text-gray-700">
                     App móvil para Android: teléfonos, tablets, colectoras de
                     datos
                     <br />
@@ -207,7 +207,7 @@ export default function ServicesPreview() {
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  <div className="w-80 h-[650px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[3.5rem] p-4 shadow-2xl border-[6px] border-orange-500">
+                  <div className="w-80 h-[650px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[3.5rem] p-4 shadow-2xl border-[6px] border-onca-orange">
                     <div className="w-full h-full bg-white rounded-[3rem] overflow-hidden relative shadow-inner">
                       {/* Phone notch */}
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-36 h-7 bg-gray-900 rounded-b-3xl z-20" />
@@ -271,7 +271,7 @@ export default function ServicesPreview() {
                               onClick={() =>
                                 trackEvents.videoPlay(activeService)
                               }
-                              className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                              className="w-16 h-16 bg-onca-orange rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                             >
                               <Play
                                 size={28}

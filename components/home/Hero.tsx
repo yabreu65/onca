@@ -35,7 +35,7 @@ export default function Hero() {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section className="relative h-[60vh] md:h-[85vh] overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <section className="relative h-[50vh] lg:h-[85vh] overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       {heroSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -53,9 +53,15 @@ export default function Hero() {
             priority={index === 0}
             quality={90}
             sizes="100vw"
+
           />
-          {/* Overlay gradient para mejorar legibilidad del texto */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to right, rgba(0,0,0,0.90) 10%, rgba(0,0,0,0.35) 45%, transparent 60%)",
+            }}
+          />
+
         </div>
       ))}
 
@@ -104,7 +110,8 @@ export default function Hero() {
         <ChevronRight size={24} />
       </button>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20"
+      >
         {heroSlides.map((_, index) => (
           <button
             key={index}

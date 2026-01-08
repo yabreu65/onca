@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { Play } from 'lucide-react';
-import { serviceKeys, serviceIcons, serviceSlugs, type ServiceKey } from '@/lib/utils';
+import { serviceKeys, serviceIcons, serviceSlugs, getServiceSlug, type ServiceKey } from '@/lib/utils';
 
 export function generateStaticParams() {
   // Generate params for all slugs (both Spanish and English)
@@ -38,17 +38,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {serviceKeys.map((key) => (
               <Link
                 key={key}
-                href={getLocalizedPath(`/servicios/${key}`)}
-                className={`px-4 py-2 transition-all duration-200 whitespace-nowrap ${
-                  key === serviceKey
+                href={getLocalizedPath(`/servicios/${getServiceSlug(key)}`)}
+                className={`px-4 py-2 transition-all duration-200 whitespace-nowrap ${key === serviceKey
                     ? 'text-black font-bold relative'
                     : 'text-gray-600 hover:text-black'
-                }`}
+                  }`}
               >
                 {t(`tabs.${key}`)}
                 {key === serviceKey && (
-                  <div className="absolute -bottom-5 left-0 right-0">
-                    <div className="h-1.5 bg-orange-500 rounded-sm" />
+                  <div className="absolute -bottom-5 left-0 right-0 hidden lg:block">
+                    <div className="h-1.5 bg-onca-orange rounded-sm" />
                   </div>
                 )}
               </Link>
@@ -72,14 +71,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
 
                   {/* Blue top section - Title only */}
-                  <div className="bg-gradient-to-br from-blue-600 to-blue-800 pt-16 pb-6 px-8">
+                  <div
+                    className="w-[98.5%] bg-[#035099] font-roboto pt-16 pb-6 px-8 rounded-t-3xl border-t-4 border-white mx-auto"
+                   
+                  >
                     <h1 className="text-2xl md:text-3xl font-bold text-center text-white">
                       {t(`items.${serviceKey}.title`)}
                     </h1>
                   </div>
 
                   {/* White bottom section - Subtitle and description */}
-                  <div className="bg-white p-8 pt-6">
+                  <div className="bg-service-light font-roboto  p-8 pt-6">
                     <p className="text-gray-900 leading-relaxed mb-4 text-lg font-semibold">
                       {t(`items.${serviceKey}.subtitle`)}
                     </p>
@@ -91,7 +93,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
 
               {/* Orange card with benefits */}
-              <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-8">
+              <div className="bg-onca-orange rounded-3xl p-8 font-roboto ">
                 <p className="text-white leading-relaxed text-base">
                   {t(`items.${serviceKey}.highlight`)}
                 </p>

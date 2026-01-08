@@ -25,13 +25,16 @@ export default function Partners() {
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10">
             <h2
               className="section-title font-semibold font-poppins text-white mb-4"
-              style={{ textShadow: '3px 3px 10px rgba(0, 0, 0, 0.9), -1px -1px 5px rgba(0, 0, 0, 0.7)' }}
+              style={{
+                textShadow: "8px 8px 60px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1)"
+              }}
+
             >
               {t("title")}
             </h2>
           </div>
         </div>
-        <div className="w-full bg-[#005094] py-4">
+        <div className="w-full bg-service-blue py-4">
           <p className="font-roboto  max-w-3xl mx-auto text-blue-100 text-[10px] md:text-[13px] text-center font-semibold">
             {t("description")}
           </p>
