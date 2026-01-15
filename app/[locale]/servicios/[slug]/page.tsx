@@ -121,7 +121,7 @@ export default async function ServicePage({
 
             {/* Right side - Phone mockup */}
             <div className="flex justify-center lg:justify-end relative">
-              <div className="relative">
+              <div className="relative rotate-[-6deg]">
                 {/* Phone mockup */}
                 <div className="flex justify-center w-full relative z-10">
                   {serviceVideos[serviceKey] && (
