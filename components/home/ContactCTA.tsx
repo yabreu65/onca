@@ -11,7 +11,7 @@ export default function ContactCTA() {
   return (
     <section
       id="contacto"
-      className="relative overflow-hidden h-[50vh] xl:h-[80vh] flex  items-center py-8 md:py-16"
+      className="relative overflow-hidden max-[400px]:h-[80vh] h-[50vh] xl:h-[80vh] flex  items-center py-8 md:py-16"
       style={{
         background: "#0a1f3d",
         backgroundImage: "url('/images/bg-Firefly.jpg')",
@@ -22,9 +22,9 @@ export default function ContactCTA() {
     >
 
       <div className="flex max-lg:flex-col  justify-center max-md:items-center relative z-10 w-full">
-        <div className="w-full lg:w-1/2 flex justify-center pl-12">
+        <div className="w-full lg:w-1/2 flex justify-center">
           {/* Left side - Content */}
-          <div className="flex flex-col justify-center  w-full ">
+          <div className="flex flex-col justify-center items-center w-full ">
 
             <Image
               src="/images/logo-contact.svg"
@@ -34,10 +34,10 @@ export default function ContactCTA() {
               className="pointer-events-none mb-12"
             />
 
-            <h2 className="w-full  text-3xl md:text-5xl font-poppins font-bold text-white mb-4 md:mb-12 leading-tight">
+            <h2 className="w-full text-center text-3xl md:text-5xl font-poppins font-bold text-white mb-4 md:mb-12 leading-tight">
               {t("title")}
             </h2>
-            <p className="text-white font-poppins font-semibold pl-0 md:pl-12 md:mb-12 text-base md:text-xl max-w-xl">
+            <p className="text-white text-center font-poppins font-semibold pl-0 md:pl-12 md:mb-12 text-base md:text-xl max-w-xl">
               {t("subtitle")}
             </p>
           </div>

@@ -4,57 +4,47 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { partners } from "@/lib/utils";
 
-
 export default function Partners() {
   const t = useTranslations("partners");
 
   return (
-    <section id="partners" className="bg-white">
-      <div className="w-full mx-auto">
-        {/* Imagen como fondo que toma su tamaño real */}
-        <div className="relative overflow-hidden">
-          <Image
-            src="/images/Ecosistema.jpg"
-            alt="Ecosystem"
-            width={1920}
-            height={600}
-            className="h-auto md:h-[600px]"
-          />
+    <section id="partners" className="bg-white w-full">
+      {/* Imagen */}
+      <div className="relative w-full h-[300px] md:h-[600px] overflow-hidden">
+        <Image
+          src="/images/Ecosistema.jpg"
+          alt="Ecosystem"
+          fill
+          className="object-cover"
+          priority
+        />
 
-          {/* Overlay con texto */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10">
-            <h2
-              className="section-title font-semibold font-poppins text-white mb-4"
-              style={{
-                textShadow: "8px 8px 60px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1)"
-              }}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+          <h2 className="section-title font-poppins font-semibold text-white">
+            {t("title")}
+          </h2>
+        </div>
+      </div>
 
-            >
-              {t("title")}
-            </h2>
+      {/* Franja azul */}
+      <div className="w-full bg-service-blue py-4">
+        <p className="font-roboto max-w-4xl mx-auto text-blue-100 text-center font-semibold">
+          {t("description")}
+        </p>
+      </div>
+
+      {/* Logos */}
+      <div className="bg-white flex flex-wrap justify-center gap-6 px-8 pb-16 pt-12">
+        {partners.map((partner, index) => (
+          <div key={index} className="relative w-16 h-16 sm:w-20 sm:h-20">
+            <Image
+              src={partner.logo}
+              alt={partner.name}
+              fill
+              className="object-contain"
+            />
           </div>
-        </div>
-        <div className="w-full bg-service-blue py-4">
-          <p className="font-roboto  max-w-3xl mx-auto text-blue-100 text-[10px] md:text-[13px] text-center font-semibold">
-            {t("description")}
-          </p>
-        </div>
-
-        <div className="bg-white flex flex-wrap justify-center items-center gap-6 px-8 pb-16 pt-12">
-          {partners.map((partner, index) => (
-            <div
-              key={index}
-              className="relative w-16 h-16 sm:w-20 sm:h-20  flex items-center justify-center transition-all duration-300 hover:scale-105"
-            >
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                fill
-                className="object-contain"
-              />
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );

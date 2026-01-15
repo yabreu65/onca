@@ -56,24 +56,34 @@ export const serviceSlugsByLocale: Record<ServiceKey, string> = {
   authorization: 'autorizacion',
 };
 
+export const serviceVideos: Record<ServiceKey, string> = {
+  visits: '/videos/visitas.mov',
+  orders: '/videos/pedidos.mov',
+  preparation: '/videos/preparacion.mov',
+  delivery: '/videos/entregas.mov',
+  reception: '/videos/recepcion.mov',
+  collections: '/videos/cobranzas.mov',
+  authorization: '/videos/autorizacion.mov',
+};
+
 export function getServiceSlug(serviceKey: ServiceKey): string {
   return serviceSlugsByLocale[serviceKey];
 }
 
 export const testimonials = [
-  { company: 'TALLERES BANFIELD', name: 'Sebastián Queirolo', image: '/images/Sebastian Queirolo.jpg', quote: 'El portal web desarrollado por ONCA IT significó una mejora sustancial en los ingresos de pedidos y en el servicio integral que damos a nuestros clientes' },
-  { company: 'PREVISORA DEL PARANÁ', name: 'Esteban Maciel', image: '/images/Esteban-Maciel.jpeg', quote: 'ONCA IT desarrolló nuestra app móvil para gestión de clientes brindando innovación y acompañamiento. Logramos integrar con nuestro ERP, mejorando procesos y fomentando la evolución continua.' },
-  { company: 'ELECTROOUTLET', name: 'Claudio Rozental', image: '/images/Claudio Rozental.png', quote: 'En este mundo tan cambiante debemos entender que tanto la Ai como la automatización de los procesos son las únicas herramientas que ayudarán a las empresas a ser competitivas. De la mano de ONCA IT, nuestro asesor tecnológico, estamos recorriendo ese camino.' },
-  { company: 'FARMAGRE SRL', name: 'Gabriel Delizia', image: '/images/Gabriel Delizia.png', quote: 'ONCA Mobile resultó fundamental en nuestra reingeniería logística. Permitió optimizar la eficiencia, reducir significativamente los errores y elevar la satisfacción de nuestros clientes.' },
+  { company: 'TALLERES BANFIELD', name: 'Sebastián Queirolo', image: '/images/Sebastian Queirolo.jpg', quote: 'El portal web desarrollado por <b>ONCA IT</b> significó una mejora sustancial en los ingresos de pedidos y en el servicio integral que damos a nuestros clientes' },
+  { company: 'PREVISORA DEL PARANÁ', name: 'Esteban Maciel', image: '/images/Esteban-Maciel.jpeg', quote: '<b>ONCA IT</b> desarrolló nuestra app móvil para gestión de clientes brindando innovación y acompañamiento. Logramos integrar con nuestro ERP, mejorando procesos y fomentando la evolución continua.' },
+  { company: 'ELECTROOUTLET', name: 'Claudio Rozental', image: '/images/Claudio Rozental.png', quote: 'En este mundo tan cambiante debemos entender que tanto la Ai como la automatización de los procesos son las únicas herramientas que ayudarán a las empresas a ser competitivas. De la mano de <b>ONCA IT</b>, nuestro asesor tecnológico, estamos recorriendo ese camino.' },
+  { company: 'FARMAGRE SRL', name: 'Gabriel Delizia', image: '/images/Gabriel Delizia.png', quote: '<b>ONCA Mobile</b> resultó fundamental en nuestra reingeniería logística. Permitió optimizar la eficiencia, reducir significativamente los errores y elevar la satisfacción de nuestros clientes.' },
   { company: 'LA TRIESTINA', name: 'Pablo Cosentino', image: '/images/Pablo Cosentino.jpeg', quote: 'Logramos automatizar la preparación y empaque de pedidos minimizando errores, lo cual impactó positivamente en la satisfacción del cliente, en nuestra eficiencia y fiabilidad del stock.' },
-  { company: 'NETFOOD', name: 'José Cabrales', role: 'Director de operaciones', image: '/images/Jose Cabrales.jpg', quote: 'Conectan al talento humano en desarrollo de software con los proyectos tecnológicos más desafiantes.' },
+  { company: 'NETFOOD', name: 'José Cabrales', image: '/images/Jose Cabrales.jpg', quote: 'Conectan al talento humano en desarrollo de software con los proyectos tecnológicos más desafiantes.' },
 ];
 
 export const partners = [
   { name: 'Acudir', logo: '/images/partners/acudir.png' },
   { name: 'Allub', logo: '/images/partners/allub.gif' },
   { name: 'Chisap', logo: '/images/partners/chisap.png' },
-  { name: 'Celulosa', logo: '/images/partners/celulosa.' },
+  { name: 'Celulosa', logo: '/images/partners/celulosa.gif' },
   { name: 'Daedaz', logo: '/images/partners/daedaz.png' },
   { name: 'ElectroOutlet', logo: '/images/partners/electrooutlet.png' },
   { name: 'Fresh', logo: '/images/partners/fresh.png' },
