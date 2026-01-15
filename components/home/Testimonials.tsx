@@ -92,7 +92,10 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="casos-de-exito" className="relative overflow-hidden">
+    <section
+      id="casos-de-exito"
+      className="bg-[#272727] relative overflow-hidden pb-4 lg:pb-12"
+    >
       {/* Orange header */}
       <div className="bg-onca-orange py-6">
         <div className="max-w-9xl px-6 mx-auto flex items-center justify-center">
@@ -117,15 +120,17 @@ export default function Testimonials() {
       </div>
 
       {/* Carousel */}
-      <div className="bg-gray-100 py-16 relative">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="relative px-4 md:px-16 overflow-hidden">
+      <div className="bg-gray-100 relative">
+        <div className="w-full">
+          <div className="relative overflow-hidden">
             {/* Carousel Track */}
             <div
               ref={sliderRef}
-              className="flex gap-4"
+              className="flex"
               style={{
-                transform: `translateX(calc(-${currentIndex} * (100% + 16px) / ${itemsToShow}))`,
+                transform: `translateX(-${
+                  currentIndex * (100 / itemsToShow)
+                }%)`,
                 transition: isTransitioning
                   ? "transform 0.5s ease-in-out"
                   : "none",
@@ -135,45 +140,42 @@ export default function Testimonials() {
               {extendedTestimonials.map((card, index) => (
                 <div
                   key={`${card.company}-${index}`}
-                  className="flex-shrink-0 pb-6"
-                  style={{
-                    width: `calc(${100 / itemsToShow}% - ${
-                      (16 * (itemsToShow - 1)) / itemsToShow
-                    }px)`,
-                  }} // Ajuste preciso del gap
+                  className="flex-shrink-0 relative"
+                  style={{ width: `${100 / itemsToShow}%` }}
                 >
-                  <div className="rounded-2xl shadow-lg h-full flex flex-col w-full relative overflow-visible">
+                  <div className="h-[500px] relative w-full">
                     {/* Image */}
-                    <div className="h-[400px] sm:h-[600px] xl:h-[500px] relative overflow-hidden">
-                      <Image
-                        src={card.image}
-                        alt={card.name}
-                        fill
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    {/* Content */}
-                    <div className="w-[85%] md:w-[95%] absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-service-light opacity-70 rounded-2xl p-5 shadow-lg">
-                      <h3 className="font-extrabold text-poppins text-black text-md uppercase mb-0">
+                    <Image
+                      src={card.image}
+                      alt={card.name}
+                      fill
+                      className="object-cover"
+                    />
+
+                    {/* Content Overlay */}
+                    <div className="absolute bottom-0 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-3xl rounded-b-none p-6 shadow-xl h-[260px] flex flex-col">
+                      <h3 className="font-black text-xl uppercase mb-1 font-poppins text-black">
                         {card.company}
                       </h3>
-                      <p className="text-poppins text-sm text-black font-bold mb-1">
+                      <p className="text-lg font-bold text-gray-900 mb-4 font-poppins leading-tight">
                         {card.name}
-                        {/*{"role" in card && card.role && (
-                          <span className="block text-[10px] text-black mt-0.5">
-                            {card.role}
+                        {"role" in card && (
+                          <span className="block text-sm font-normal mt-1">
+                            {/* @ts-ignore */}
+                            {card.role as string}
                           </span>
-                        )}*/}
+                        )}
                       </p>
-                      <p
-                        className="text-black text-[12px] font-bold leading-relaxed italic"
-                        dangerouslySetInnerHTML={{
-                          __html: `"${card.quote.replace(
-                            /^"?ONCA Mobile\s*/i,
-                            ""
-                          )}"`,
-                        }}
-                      />
+                      <div className="text-gray-800 text-sm font-medium italic leading-relaxed font-roboto text-justify">
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: `"${card.quote.replace(
+                              /^"?ONCA Mobile\s*/i,
+                              ""
+                            )}"`,
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -186,9 +188,10 @@ export default function Testimonials() {
                 setIsAutoPlaying(false);
                 handlePrev();
               }}
-              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white p-2 md:p-4 rounded-lg shadow-xl hover:bg-blue-700 transition-colors z-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-colors z-20"
+              aria-label="Previous testimonial"
             >
-              <ChevronLeft size={24} className="md:w-8 md:h-8" />
+              <ChevronLeft size={32} />
             </button>
 
             <button
@@ -196,30 +199,11 @@ export default function Testimonials() {
                 setIsAutoPlaying(false);
                 handleNext();
               }}
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white p-2 md:p-4 rounded-lg shadow-xl hover:bg-blue-700 transition-colors z-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-colors z-20"
+              aria-label="Next testimonial"
             >
-              <ChevronRight size={24} className="md:w-8 md:h-8" />
+              <ChevronRight size={32} />
             </button>
-          </div>
-
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setIsAutoPlaying(false);
-                  setIsTransitioning(true);
-                  setCurrentIndex(index);
-                }}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  currentIndex % testimonials.length === index
-                    ? "bg-onca-orange"
-                    : "bg-gray-300"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
           </div>
         </div>
       </div>
