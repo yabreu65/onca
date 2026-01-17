@@ -28,7 +28,7 @@ export default function Partners() {
 
       {/* Franja azul */}
       <div className="w-full bg-service-blue py-4">
-        <p className="font-roboto max-w-4xl mx-auto text-blue-100 text-center font-semibold">
+        <p className="font-roboto max-sm:text-xs max-sm:px-6 max-w-4xl mx-auto text-blue-100 text-center font-semibold">
           {t("description")}
         </p>
       </div>

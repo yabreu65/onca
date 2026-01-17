@@ -48,8 +48,8 @@ export default function Hero() {
             src={slide.image}
             alt={slide.client}
             fill
-            className="object-cover object-center md:object-cover"
-            style={{ objectPosition: 'center center' }}
+            className="object-cover object-top md:object-cover"
+           
             priority={index === 0}
             quality={90}
             sizes="100vw"

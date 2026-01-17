@@ -153,7 +153,7 @@ export default function Testimonials() {
                     />
 
                     {/* Content Overlay */}
-                    <div className="absolute bottom-0 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-3xl rounded-b-none p-6 shadow-xl h-[260px] flex flex-col">
+                    <div className="absolute bottom-0 left-6 right-6 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none p-6 shadow-xl max-sm:h-[230px] h-[260px] flex flex-col">
                       <h3 className="font-black text-xl uppercase mb-1 font-poppins text-black">
                         {card.company}
                       </h3>
@@ -188,7 +188,7 @@ export default function Testimonials() {
                 setIsAutoPlaying(false);
                 handlePrev();
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-colors z-20"
+              className="hidden sm:block absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-colors z-20"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={32} />
@@ -199,7 +199,7 @@ export default function Testimonials() {
                 setIsAutoPlaying(false);
                 handleNext();
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-colors z-20"
+              className="hidden sm:block absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-colors z-20"
               aria-label="Next testimonial"
             >
               <ChevronRight size={32} />
