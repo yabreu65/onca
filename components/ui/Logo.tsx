@@ -11,7 +11,7 @@ export default function Logo({ variant = 'default', size = 'md' }: LogoProps) {
 
   return (
     <div className="max-[400px]:pl-2 lg:pl-6 max-[400px]:w-[30%] w-[28%] md:w-full flex items-center gap-3">
-      <div className={cn('w-full flex items-center justify-start', sizes[size].icon)}>
+      <div className={cn('w-full  flex items-center justify-start', sizes[size].icon)}>
         <Image
           src="/images/logo.png"
           alt="Logo"

@@ -149,15 +149,15 @@ export default function Testimonials() {
                       src={card.image}
                       alt={card.name}
                       fill
-                      className="object-cover"
+                      className="object-cover max-sm:object-[50%_40%] object-[50%_70%] "
                     />
 
                     {/* Content Overlay */}
-                    <div className="absolute bottom-0 left-6 right-6 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none p-6 shadow-xl max-sm:h-[230px] h-[260px] flex flex-col">
-                      <h3 className="font-black text-xl uppercase mb-1 font-poppins text-black">
+                    <div className="absolute bottom-0 mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-3 shadow-xl max-sm:h-[160px] h-[180px] flex flex-col">
+                      <h3 className="font-black text-xl uppercase  font-roboto-condensed text-black">
                         {card.company}
                       </h3>
-                      <p className="text-lg font-bold text-gray-900 mb-4 font-poppins leading-tight">
+                      <p className="text-lg font-bold text-gray-900  font-roboto-condensed leading-tight">
                         {card.name}
                         {"role" in card && (
                           <span className="block text-sm font-normal mt-1">
@@ -166,7 +166,7 @@ export default function Testimonials() {
                           </span>
                         )}
                       </p>
-                      <div className="text-gray-800 text-sm font-medium italic leading-relaxed font-roboto text-justify">
+                      <div className="text-gray-800 text-xs font-medium italic leading-relaxed font-roboto-condensed text-justify">
                         <span
                           dangerouslySetInnerHTML={{
                             __html: `"${card.quote.replace(

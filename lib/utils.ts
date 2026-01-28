@@ -76,7 +76,6 @@ export const testimonials = [
   { company: 'ELECTROOUTLET', name: 'Claudio Rozental', image: '/images/Claudio Rozental -1.png', quote: 'En este mundo tan cambiante debemos entender que tanto la Ai como la automatización de los procesos son las únicas herramientas que ayudarán a las empresas a ser competitivas. De la mano de <b>ONCA IT</b>, nuestro asesor tecnológico, estamos recorriendo ese camino.' },
   { company: 'FARMAGRE SRL', name: 'Gabriel Delizia', image: '/images/Gabriel Delizia.png', quote: '<b>ONCA Mobile</b> resultó fundamental en nuestra reingeniería logística. Permitió optimizar la eficiencia, reducir significativamente los errores y elevar la satisfacción de nuestros clientes.' },
   { company: 'LA TRIESTINA', name: 'Pablo Cosentino', image: '/images/Pablo Cosentino.jpeg', quote: 'Logramos automatizar la preparación y empaque de pedidos minimizando errores, lo cual impactó positivamente en la satisfacción del cliente, en nuestra eficiencia y fiabilidad del stock.' },
-  { company: 'NETFOOD', name: 'José Cabrales', image: '/images/Jose Cabrales.jpg', quote: 'Conectan al talento humano en desarrollo de software con los proyectos tecnológicos más desafiantes.' },
 ];
 
 export const partners = [
