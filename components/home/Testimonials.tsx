@@ -149,11 +149,11 @@ export default function Testimonials() {
                       src={card.image}
                       alt={card.name}
                       fill
-                      className="object-cover max-sm:object-[50%_40%] object-[50%_70%] "
+                      className="object-cover max-sm:object-[50%_40%]  md:object-[50%_50%] 2xl:object-[50%_34%]"
                     />
 
                     {/* Content Overlay */}
-                    <div className="absolute bottom-0 mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-3 shadow-xl max-sm:h-[160px] h-[180px] flex flex-col">
+                    <div className="absolute bottom-0 mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-3 shadow-xl max-sm:h-[160px] md:h-[180px] 2xl:h-[140px] flex flex-col">
                       <h3 className="font-black text-xl uppercase  font-roboto-condensed text-black">
                         {card.company}
                       </h3>
