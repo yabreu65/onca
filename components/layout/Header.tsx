@@ -79,18 +79,18 @@ export default function Header() {
         <div className="absolute inset-0 bg-white" />
 
         {/* Fondo naranja con forma diagonal usando SVG */}
-        <div className="absolute inset-0 flex justify-end">
+        <div className="absolute inset-0 flex justify-end w-full">
           <Image
             src="/images/test2.svg"
             alt="Ecosystem"
             width={120}
             height={120}
-            className="pointer-events-none w-[70%]"
+            className="pointer-events-none max-sm:w-[60%] w-[70%]"
           />
         </div>
 
         {/* Contenido del header con flexbox */}
-        <div className=" xl:max-w-full  py-0 md:py-6 relative">
+        <div className=" xl:max-w-full  py-0 md:py-14 relative">
           <div className="flex items-center justify-between h-20">
             {/* Logo - sobre fondo blanco */}
             <Link

@@ -149,7 +149,18 @@ export default function Testimonials() {
                       src={card.image}
                       alt={card.name}
                       fill
-                      className="object-cover max-sm:object-[50%_40%]  md:object-[50%_50%] 2xl:object-[50%_34%]"
+                      className="
+    object-cover
+    xl:object-[50%_var(--fy-xl)]
+    2xl:object-[50%_var(--fy-2xl)]
+  "
+                      style={
+                        {
+                          "--fy-xl": card.focus?.xl ?? card.focus?.xl ?? "40%",
+                          "--fy-2xl":
+                            card.focus?.["2xl"] ?? card.focus?.xl ?? "40%",
+                        } as React.CSSProperties
+                      }
                     />
 
                     {/* Content Overlay */}
@@ -166,12 +177,12 @@ export default function Testimonials() {
                           </span>
                         )}
                       </p>
-                      <div className="text-gray-800 text-sm font-medium italic leading-relaxed font-roboto text-justify">
+                      <div className="text-gray-800 text-sm font-medium italic leading-relaxed font-roboto text-left">
                         <span
                           dangerouslySetInnerHTML={{
                             __html: `"${card.quote.replace(
                               /^"?ONCA Mobile\s*/i,
-                              ""
+                              "",
                             )}"`,
                           }}
                         />

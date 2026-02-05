@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         onca: {
-          orange: '#F36432',
+          orange: '#EB6824',
           'orange-dark': '#E65100',
           'orange-light': '#FFB74D',
         },
