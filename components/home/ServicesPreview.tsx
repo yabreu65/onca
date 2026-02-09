@@ -119,7 +119,7 @@ export default function ServicesPreview() {
       {/* Black content section */}
       <div className="bg-[#2C2F31] text-white py-16 relative overflow-hidden">
         <div className="max-[450px]:max-w-7xl max-w-9xl mx-auto">
-          <div className="grid lg:grid-cols-2  items-center">
+          <div className="grid xl:grid-cols-2  items-center">
             {/* Left side - Curved panels */}
             <div
               className="space-y-6 relative z-10 w-[95%]"
@@ -127,7 +127,7 @@ export default function ServicesPreview() {
             >
               {/* Orange panel with curve on right */}
               <div className="relative">
-                <div className="bg-onca-orange text-white max-[400px]:pl-4 pl-6 lg:pl-20 pr-16 py-3 lg:py-8 max-[400px]:rounded-none rounded-tr-[120px] rounded-br-[120px]">
+                <div className="bg-onca-orange text-white max-[400px]:pl-4 pl-6 lg:pl-20 pr-16 py-8 max-[400px]:rounded-none rounded-tr-[120px] rounded-br-[120px]">
                   <h3 className="text-md lg:text-xl font-roboto font-bold mb-1 uppercase tracking-wide">
                     PRINCIPALES BENEFICIOS
                   </h3>
@@ -149,7 +149,7 @@ export default function ServicesPreview() {
 
               {/* White panel with curve on right */}
               <div className="relative">
-                <div className="bg-white text-black max-[400px]:pl-4 pl-6 lg:pl-20 pr-16 lg:py-8 max-[400px]:rounded-none rounded-tr-[120px] rounded-br-[120px]">
+                <div className="bg-white text-black max-[400px]:pl-4 pl-6 lg:pl-20 pr-16 py-8 max-[400px]:rounded-none rounded-tr-[120px] rounded-br-[120px]">
                   <h3 className="text-md lg:text-xl font-roboto font-bold uppercase ">
                     PRINCIPALES CARACTERÍSTICAS
                   </h3>
@@ -178,7 +178,7 @@ export default function ServicesPreview() {
             </div>
 
             {/* Right side - Phone mockup */}
-            <div className="flex justify-center rotate-[-6deg] relative max-lg:pt-12 ">
+            <div className="flex justify-center rotate-[-6deg] relative max-xl:pt-12 ">
               <video
                 className="w-1/2 max-w-5xl rounded-2xl shadow-xl"
                 src="/videos/ERPM-TomaDePedidos(incluyeLOGIN).mov"

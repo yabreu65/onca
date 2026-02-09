@@ -134,7 +134,7 @@ export const testimonials = [
     image: "/images/Gabriel Delizia.png",
     focus: {
       xl: "107%",
-      "2xl": "40%",
+      "2xl": "60%",
     },
     quote:
       "<b>ONCA Mobile</b> resultó fundamental en nuestra reingeniería logística. Permitió optimizar la eficiencia, reducir significativamente los errores y elevar la satisfacción de nuestros clientes.",
@@ -145,7 +145,7 @@ export const testimonials = [
     image: "/images/Pablo Cosentino.jpeg",
     focus: {
       xl: "68%",
-      "2xl": "30%",
+      "2xl": "40%",
     },
     quote:
       "Logramos automatizar la preparación y empaque de pedidos minimizando errores, lo cual impactó positivamente en la satisfacción del cliente, en nuestra eficiencia y fiabilidad del stock.",
@@ -155,12 +155,12 @@ export const testimonials = [
 export const partners = [
   { name: "Acudir", logo: "/images/partners/acudir.png" },
   { name: "Allub", logo: "/images/partners/allub.gif" },
-  { name: "Chisap", logo: "/images/partners/chisap.png" },
+  { name: "Chisap", logo: "/images/partners/chisap.svg" },
   { name: "Celulosa", logo: "/images/partners/celulosa.gif" },
-  { name: "Daedaz", logo: "/images/partners/daedaz.png" },
+  { name: "Daedaz", logo: "/images/partners/daedaz.svg" },
   { name: "ElectroOutlet", logo: "/images/partners/electrooutlet.png" },
   { name: "Fresh", logo: "/images/partners/fresh.png" },
-  { name: "Gleba", logo: "/images/partners/gleba.png" },
+  { name: "Gleba", logo: "/images/partners/gleba.svg" },
   { name: "GTC", logo: "/images/partners/gtc.png" },
   { name: "Mateo", logo: "/images/partners/mateo.png" },
   { name: "Mercomax", logo: "/images/partners/mercomax.png" },
@@ -168,6 +168,6 @@ export const partners = [
   { name: "Schaeffler", logo: "/images/partners/schaeffler.png" },
   { name: "Oligra", logo: "/images/partners/oligra.png" },
   { name: "Pingakol", logo: "/images/partners/pingakol.png" },
-  { name: "Talleres Banfield", logo: "/images/partners/talleres-banfield.png" },
+  { name: "Talleres Banfield", logo: "/images/partners/Talleres Banfield.svg" },
   { name: "VIA", logo: "/images/partners/via.png" },
 ];

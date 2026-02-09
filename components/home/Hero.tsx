@@ -2,11 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn, heroSlides } from "@/lib/utils";
-import { trackEvents } from "@/lib/analytics";
 
 export default function Hero() {
   const t = useTranslations("hero");
@@ -16,11 +14,11 @@ export default function Hero() {
 
   const nextSlide = useCallback(
     () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length),
-    []
+    [],
   );
   const prevSlide = () =>
     setCurrentSlide(
-      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
+      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length,
     );
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -41,7 +39,7 @@ export default function Hero() {
           key={slide.id}
           className={cn(
             "absolute inset-0 transition-opacity duration-1000",
-            index === currentSlide ? "opacity-100" : "opacity-0"
+            index === currentSlide ? "opacity-100" : "opacity-0",
           )}
         >
           <Image
@@ -49,19 +47,17 @@ export default function Hero() {
             alt={slide.client}
             fill
             className="object-cover object-top md:object-cover"
-           
             priority={index === 0}
             quality={90}
             sizes="100vw"
-
           />
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to right, rgba(0,0,0,0.90) 10%, rgba(0,0,0,0.35) 45%, transparent 60%)",
+              background:
+                "linear-gradient(to right, rgba(0,0,0,0.90) 10%, rgba(0,0,0,0.35) 45%, transparent 60%)",
             }}
           />
-
         </div>
       ))}
 
@@ -110,8 +106,7 @@ export default function Hero() {
         <ChevronRight size={24} />
       </button>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20"
-      >
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {heroSlides.map((_, index) => (
           <button
             key={index}
@@ -120,7 +115,7 @@ export default function Hero() {
               "h-3 rounded-full transition-all duration-300",
               index === currentSlide
                 ? "bg-onca-orange w-10"
-                : "bg-white/50 w-3 hover:bg-white/80"
+                : "bg-white/50 w-3 hover:bg-white/80",
             )}
             aria-label={`Slide ${index + 1}`}
           />

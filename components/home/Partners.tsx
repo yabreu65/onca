@@ -34,17 +34,23 @@ export default function Partners() {
       </div>
 
       {/* Logos */}
-      <div className="bg-white flex flex-wrap justify-center gap-6 px-8 pb-16 pt-12">
-        {partners.map((partner, index) => (
-          <div key={index} className="relative w-16 h-16 sm:w-20 sm:h-20">
-            <Image
-              src={partner.logo}
-              alt={partner.name}
-              fill
-              className="object-contain"
-            />
-          </div>
-        ))}
+      <div className="bg-white px-8 pb-16 pt-12">
+        <div className="flex flex-wrap justify-center gap-24 max-w-7xl mx-auto">
+          {partners.map((partner, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center h-20 sm:h-24 xl:w-40"
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={120}
+                height={120}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
