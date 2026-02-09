@@ -160,7 +160,7 @@ export const partners = [
   { name: "Daedaz", logo: "/images/partners/Daedaz.svg" },
   { name: "ElectroOutlet", logo: "/images/partners/electrooutlet.png" },
   { name: "Fresh", logo: "/images/partners/fresh.png" },
-  { name: "Gleba", logo: "/images/partners/gleba.svg" },
+  { name: "Gleba", logo: "/images/partners/Gleba.svg" },
   { name: "GTC", logo: "/images/partners/gtc.png" },
   { name: "Mateo", logo: "/images/partners/mateo.png" },
   { name: "Mercomax", logo: "/images/partners/mercomax.png" },
