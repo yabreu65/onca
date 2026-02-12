@@ -146,22 +146,22 @@ export default function Testimonials() {
                   <div className="h-[500px] relative w-full">
                     {/* Image */}
                     <Image
-                      src={card.image}
-                      alt={card.name}
-                      fill
-                      className="
-    object-cover
+  src={card.image}
+  alt={card.name}
+  fill
+  className="
+    sm:object-contain sm:w-full
+    lg:object-cover object-center
     xl:object-[50%_var(--fy-xl)]
     2xl:object-[50%_var(--fy-2xl)]
   "
-                      style={
-                        {
-                          "--fy-xl": card.focus?.xl ?? card.focus?.xl ?? "40%",
-                          "--fy-2xl":
-                            card.focus?.["2xl"] ?? card.focus?.xl ?? "40%",
-                        } as React.CSSProperties
-                      }
-                    />
+  style={
+    {
+      "--fy-xl": card.focus?.xl ?? card.focus?.lg ?? "40%",
+      "--fy-2xl": card.focus?.["2xl"] ?? card.focus?.xl ?? "40%",
+    } as React.CSSProperties
+  }
+/>
 
                     {/* Content Overlay */}
                     <div className="absolute bottom-0 mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-1 sm:py-3 shadow-xl max-sm:h-[165px] md:h-[200px] 2xl:h-[150px] flex flex-col">

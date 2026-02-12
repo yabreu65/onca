@@ -144,6 +144,7 @@ export const testimonials = [
     name: "Pablo Cosentino",
     image: "/images/Pablo Cosentino.jpeg",
     focus: {
+      lg: "10%",
       xl: "68%",
       "2xl": "40%",
     },
