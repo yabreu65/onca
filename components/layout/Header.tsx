@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -26,6 +26,53 @@ function useLockBodyScroll(active: boolean) {
 }
 
 /* =========================
+   Hook: header bottom in viewport (MOST RELIABLE)
+   - Measures getBoundingClientRect().bottom
+   - Uses ResizeObserver + scroll/resize (rAF throttled)
+   ========================= */
+function useViewportBottom<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [bottom, setBottom] = useState(0);
+
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let raf = 0;
+
+    const update = () => {
+      const r = el.getBoundingClientRect();
+      // bottom relative to viewport top
+      setBottom(Math.max(0, Math.round(r.bottom)));
+    };
+
+    const schedule = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+
+    update();
+
+    const ro = new ResizeObserver(schedule);
+    ro.observe(el);
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    window.addEventListener("load", schedule);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("load", schedule);
+    };
+  }, []);
+
+  return { ref, bottom };
+}
+
+/* =========================
    Mobile Menu Drawer
    ========================= */
 function MobileMenu({
@@ -37,6 +84,7 @@ function MobileMenu({
   tServices,
   t,
   getLocalizedPath,
+  topOffset,
 }: {
   open: boolean;
   onClose: () => void;
@@ -46,6 +94,7 @@ function MobileMenu({
   tServices: (key: string) => string;
   t: (key: string) => string;
   getLocalizedPath: (path: string) => string;
+  topOffset: number;
 }) {
   useLockBodyScroll(open);
 
@@ -56,26 +105,31 @@ function MobileMenu({
         className={cn(
           "fixed left-0 right-0 bottom-0 bg-black/40 backdrop-blur-md",
           "z-30 transition-opacity duration-300",
-          "top-20",
           open ? "opacity-100" : "opacity-0 pointer-events-none",
         )}
+        style={{ top: topOffset }}
         onClick={onClose}
       />
 
       {/* Drawer */}
       <aside
         className={cn(
-          "fixed right-0  w-[85%] max-w-sm bg-white z-40",
+          "fixed right-0 w-[85%] max-w-sm bg-white z-40",
           "transform transition-transform duration-300 ease-out",
           open ? "translate-x-0" : "translate-x-full",
         )}
+        style={{
+          top: topOffset,
+          height: `calc(100dvh - ${topOffset}px)`,
+        }}
       >
-        {/* Header */}
+        {/* Drawer Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <span className="font-semibold text-gray-900">Menú</span>
           <button
             onClick={onClose}
             className="p-2 rounded-lg hover:bg-gray-100"
+            aria-label="Cerrar menú"
           >
             <X size={20} />
           </button>
@@ -90,6 +144,7 @@ function MobileMenu({
                   <button
                     className="w-full flex items-center justify-between py-3 px-4 rounded-lg hover:bg-gray-100 text-gray-700"
                     onClick={() => setServicesOpen(!servicesOpen)}
+                    aria-expanded={servicesOpen}
                   >
                     {item.label}
                     <ChevronDown
@@ -161,9 +216,13 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
+  // ✅ we measure the REAL bottom of the header (includes topbar effect when not sticky)
+  const { ref: headerRef, bottom: headerBottomPx } =
+    useViewportBottom<HTMLElement>();
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -175,21 +234,25 @@ export default function Header() {
   const getLocalizedPath = (path: string) =>
     locale === "es" ? path : `/${locale}${path}`;
 
-  const navItems = [
-    { label: t("home"), href: getLocalizedPath("/") },
-    {
-      label: t("services"),
-      href: getLocalizedPath("/servicios"),
-      hasDropdown: true,
-    },
-    { label: t("cases"), href: getLocalizedPath("/#casos-de-exito") },
-    { label: t("partners"), href: getLocalizedPath("/partners") },
-    { label: t("contact"), href: getLocalizedPath("/#contacto") },
-  ];
+  const navItems = useMemo(
+    () => [
+      { label: t("home"), href: getLocalizedPath("/") },
+      {
+        label: t("services"),
+        href: getLocalizedPath("/servicios"),
+        hasDropdown: true,
+      },
+      { label: t("cases"), href: getLocalizedPath("/#casos-de-exito") },
+      { label: t("partners"), href: getLocalizedPath("/partners") },
+      { label: t("contact"), href: getLocalizedPath("/#contacto") },
+    ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [locale, pathname],
+  );
 
   return (
     <>
-      {/* Top bar */}
+      {/* Top bar (scrolls with the page) */}
       <div className="bg-[#1D1D1B] text-white py-4 md:block">
         <div className="text-xs md:text-xl font-roboto px-4 flex justify-center gap-12 md:gap-32">
           <a
@@ -209,8 +272,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Header */}
+      {/* Sticky Header */}
       <header
+        ref={headerRef}
         className={cn(
           "sticky top-0 z-50 transition-all duration-300 px-6",
           isScrolled && "shadow-lg",
@@ -285,6 +349,7 @@ export default function Header() {
             <button
               className="lg:hidden p-2 text-white relative z-10"
               onClick={() => setMobileMenuOpen(true)}
+              aria-label="Abrir menú"
             >
               <Menu size={24} />
             </button>
@@ -305,6 +370,8 @@ export default function Header() {
         tServices={tServices}
         t={t}
         getLocalizedPath={getLocalizedPath}
+        // ✅ THIS is the key: use actual viewport bottom of header
+        topOffset={headerBottomPx}
       />
     </>
   );
