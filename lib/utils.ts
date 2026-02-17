@@ -97,22 +97,23 @@ export const testimonials = [
   {
     company: "TALLERES BANFIELD",
     name: "Sebastián Queirolo",
-    image: "/images/Sebastian Queirolo.jpg",
-    top: "10%",
+    image: "/images/Sebastian Queirolo.png",
     focus: {
-      xl: "35%",
-      "2xl": "0%",
+      lg: "10%",
+      xl: "25%",
+      "2xl": "1%",
     },
+    
     quote:
       "El portal web desarrollado por <b>ONCA IT</b> significó una mejora sustancial en los ingresos de pedidos y en el servicio integral que damos a nuestros clientes",
   },
   {
     company: "PREVISORA DEL PARANÁ",
     name: "Esteban Maciel",
-    image: "/images/Esteban-Maciel.jpeg",
+    image: "/images/Esteban-Maciel1.jpeg",
     focus: {
-      xl: "35%",
-      "2xl": "-120%",
+      xl: "5%",
+      "2xl": "20%",
     },
     quote:
       "<b>ONCA IT</b> desarrolló nuestra app móvil para gestión de clientes brindando innovación y acompañamiento. Logramos integrar con nuestro ERP, mejorando procesos y fomentando la evolución continua.",
@@ -120,10 +121,10 @@ export const testimonials = [
   {
     company: "ELECTROOUTLET",
     name: "Claudio Rozental",
-    image: "/images/Claudio Rozental -1.png",
+    image: "/images/Claudio Rozental-1.png",
     focus: {
-      xl: "78%",
-      "2xl": "30%",
+      xl: "68%",
+      "2xl": "32%",
     },
     quote:
       "En este mundo tan cambiante debemos entender que tanto la Ai como la automatización de los procesos son las únicas herramientas que ayudarán a las empresas a ser competitivas. De la mano de <b>ONCA IT</b>, nuestro asesor tecnológico, estamos recorriendo ese camino.",
@@ -133,8 +134,9 @@ export const testimonials = [
     name: "Gabriel Delizia",
     image: "/images/Gabriel Delizia.png",
     focus: {
-      xl: "107%",
-      "2xl": "60%",
+      lg: "10%",
+      xl: "80%",
+      "2xl": "32%",
     },
     quote:
       "<b>ONCA Mobile</b> resultó fundamental en nuestra reingeniería logística. Permitió optimizar la eficiencia, reducir significativamente los errores y elevar la satisfacción de nuestros clientes.",
@@ -142,11 +144,11 @@ export const testimonials = [
   {
     company: "LA TRIESTINA",
     name: "Pablo Cosentino",
-    image: "/images/Pablo Cosentino.jpeg",
+    image: "/images/Pablo Cosentino-1.jpeg",
     focus: {
       lg: "10%",
-      xl: "68%",
-      "2xl": "40%",
+       xl: "78%",
+      "2xl": "80%",
     },
     quote:
       "Logramos automatizar la preparación y empaque de pedidos minimizando errores, lo cual impactó positivamente en la satisfacción del cliente, en nuestra eficiencia y fiabilidad del stock.",

@@ -301,7 +301,7 @@ export default function Header() {
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center relative z-10">
               {navItems.map((item) => (
-                <div key={item.href} className="relative group px-4">
+                <div key={item.href} className="relative font-light xl:text-xl font-roboto group px-4">
                   {item.hasDropdown ? (
                     <button className="text-white flex items-center gap-1">
                       {item.label}
