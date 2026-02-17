@@ -121,7 +121,7 @@ export const testimonials = [
   {
     company: "ELECTROOUTLET",
     name: "Claudio Rozental",
-    image: "/images/Claudio Rozental-1.png",
+    image: "/images/Claudio rozental-1.png",
     focus: {
       xl: "68%",
       "2xl": "32%",
