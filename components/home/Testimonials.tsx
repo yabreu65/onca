@@ -149,21 +149,6 @@ export default function Testimonials() {
                       src={card.image}
                       alt={card.name}
                       fill
-                      className={`
-    origin-top 
-  
-    lg:object-[50%_var(--fy-lg)]
-    xl:object-[50%_var(--fy-xl)]
-    ${card.focus?.["2xl"] ? "2xl:object-[50%_var(--fy-2xl)]" : "2xl:object-center"}
-  `}
-                      style={
-                        { 
-                          "--fy-lg": card.focus?.lg ?? card.focus?.xl ?? "40%",
-                          "--fy-xl": card.focus?.xl ?? card.focus?.lg ?? "40%",
-                          "--fy-2xl":
-                            card.focus?.["2xl"] ?? card.focus?.xl ?? "40%",
-                        } as React.CSSProperties
-                      }
                     />
 
                     {/* Content Overlay */}

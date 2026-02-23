@@ -97,12 +97,8 @@ export const testimonials = [
   {
     company: "TALLERES BANFIELD",
     name: "Sebastián Queirolo",
-    image: "/images/Sebastian Queirolo.png",
-    focus: {
-      lg: "10%",
-      xl: "25%",
-      "2xl": "1%",
-    },
+    image: "/images/sebastian_queirolo.png",
+   
     
     quote:
       "El portal web desarrollado por <b>ONCA IT</b> significó una mejora sustancial en los ingresos de pedidos y en el servicio integral que damos a nuestros clientes",
@@ -110,46 +106,32 @@ export const testimonials = [
   {
     company: "PREVISORA DEL PARANÁ",
     name: "Esteban Maciel",
-    image: "/images/Esteban-Maciel1.jpeg",
-    focus: {
-      xl: "5%",
-      "2xl": "20%",
-    },
+    image: "/images/esteban_maciel.png",
+    
     quote:
       "<b>ONCA IT</b> desarrolló nuestra app móvil para gestión de clientes brindando innovación y acompañamiento. Logramos integrar con nuestro ERP, mejorando procesos y fomentando la evolución continua.",
   },
   {
     company: "ELECTROOUTLET",
     name: "Claudio Rozental",
-    image: "/images/Claudio rozental-1.png",
-    focus: {
-      xl: "68%",
-      "2xl": "32%",
-    },
+    image: "/images/claudio_rozental.png",
+   
     quote:
       "En este mundo tan cambiante debemos entender que tanto la Ai como la automatización de los procesos son las únicas herramientas que ayudarán a las empresas a ser competitivas. De la mano de <b>ONCA IT</b>, nuestro asesor tecnológico, estamos recorriendo ese camino.",
   },
   {
     company: "FARMAGRE SRL",
     name: "Gabriel Delizia",
-    image: "/images/Gabriel Delizia.png",
-    focus: {
-      lg: "10%",
-      xl: "80%",
-      "2xl": "32%",
-    },
+    image: "/images/gabriel_delizia.png",
+   
     quote:
       "<b>ONCA Mobile</b> resultó fundamental en nuestra reingeniería logística. Permitió optimizar la eficiencia, reducir significativamente los errores y elevar la satisfacción de nuestros clientes.",
   },
   {
     company: "LA TRIESTINA",
     name: "Pablo Cosentino",
-    image: "/images/Pablo Cosentino-1.jpeg",
-    focus: {
-      lg: "10%",
-       xl: "78%",
-      "2xl": "80%",
-    },
+    image: "/images/pablo_cosentino.png",
+    
     quote:
       "Logramos automatizar la preparación y empaque de pedidos minimizando errores, lo cual impactó positivamente en la satisfacción del cliente, en nuestra eficiencia y fiabilidad del stock.",
   },
