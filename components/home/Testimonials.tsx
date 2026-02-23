@@ -17,17 +17,24 @@ export default function Testimonials() {
 
   // Detectar móvil y ajustar items visibles
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      const mobile = width < 1100;
-      setIsMobile(mobile);
-      setItemsToShow(mobile ? 1 : 4);
-    };
+  const handleResize = () => {
+    const width = window.innerWidth;
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    let items = 1;
+
+    if (width >= 1250) items = 4;
+    else if (width >= 900) items = 3;
+    else if (width >= 500) items = 2;
+    else items = 1;
+
+    setItemsToShow(items);
+    setIsMobile(width < 900); // opcional según tu lógica
+  };
+
+  handleResize();
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   // Clones para efecto infinito (siempre clonamos 4 para cubrir desktop)
   // [Originales, Clones]
@@ -149,6 +156,7 @@ export default function Testimonials() {
                       src={card.image}
                       alt={card.name}
                       fill
+                      className="object-cover"
                     />
 
                     {/* Content Overlay */}
