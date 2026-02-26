@@ -5,7 +5,7 @@
   },
   "nav": {
     "home": "Inicio",
-    "services": "Servicios",
+    "services": "Soluciones",
     "cases": "Casos de Éxito",
     "partners": "Partners",
     "contact": "Contacto",
@@ -126,7 +126,7 @@
   },
   "footer": {
     "description": "Soluciones móviles empresariales para optimizar las operaciones diarias de tu empresa.",
-    "services": "Servicios",
+    "services": "Soluciones",
     "contact": "Contacto",
     "follow": "Seguinos",
     "rights": "Todos los derechos reservados.",

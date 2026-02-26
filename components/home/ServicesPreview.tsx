@@ -79,7 +79,7 @@ export default function ServicesPreview() {
 
             <div className="flex flex-col justify-center items-center w-full mx-auto">
               <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6 tracking-tight">
-                SERVICIOS
+                SOLUCIONES
               </h2>
               <p
                 className="w-[80%] lg:w-[70%] font-roboto text-lg md:text-2xl  text-white leading-relaxed text-left"
@@ -181,7 +181,7 @@ export default function ServicesPreview() {
             <div className="flex justify-center rotate-[-6deg] relative max-xl:pt-12 ">
               <video
                 className="w-1/2 max-w-5xl rounded-2xl shadow-xl"
-                src="/videos/ERPM-TomaDePedidos(incluyeLOGIN).mov"
+                src="/videos/TomadePedidos_Inc_LOGIN.mp4"
                 autoPlay
                 loop
                 muted
