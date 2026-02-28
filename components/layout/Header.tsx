@@ -276,11 +276,10 @@ export default function Header() {
       <header
         ref={headerRef}
         className={cn(
-          "sticky top-0 z-50 transition-all duration-300 px-6",
+          "top-0 z-50 w-full bg-white/80 backdrop-blur-sm transition-all duration-300 px-6",
           isScrolled && "shadow-lg",
         )}
       >
-        <div className="absolute inset-0 bg-white" />
 
         <div className="absolute inset-0 flex justify-end">
           <Image
