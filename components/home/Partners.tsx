@@ -15,7 +15,7 @@ export default function Partners() {
           src="/images/Ecosistema.jpg"
           alt="Ecosystem"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
 

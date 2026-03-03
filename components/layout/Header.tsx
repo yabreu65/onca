@@ -243,7 +243,7 @@ export default function Header() {
         hasDropdown: true,
       },
       { label: t("cases"), href: getLocalizedPath("/#casos-de-exito") },
-      { label: t("partners"), href: getLocalizedPath("/partners") },
+      { label: t("partners"), href: getLocalizedPath("/#partners") },
       { label: t("contact"), href: getLocalizedPath("/#contacto") },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
