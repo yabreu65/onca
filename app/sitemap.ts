@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { siteConfig, serviceKeys, getServiceSlug } from '@/lib/utils';
 
+export const dynamic = 'force-static';
+
 const baseUrl = siteConfig.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
