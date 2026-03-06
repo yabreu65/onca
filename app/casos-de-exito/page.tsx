@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Quote } from "lucide-react";
 import { testimonials } from "@/lib/utils";
 
-export default function CasosDeExitoPage() {
-  const t = useTranslations("testimonials");
-  const locale = useLocale();
+export default async function CasosDeExitoPage() {
+  const t = await getTranslations({ locale: "es", namespace: "testimonials" });
 
-  const homeCasosLink =
-    locale === "es" ? "/#casos-de-exito" : `/${locale}/#casos-de-exito`;
+  const homeCasosLink = "/#casos-de-exito";
 
   return (
     <div className="min-h-screen">

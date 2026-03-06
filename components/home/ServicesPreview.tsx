@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
-import { Play } from "lucide-react";
+import { useTranslations } from "next-intl";
 import {
   cn,
   serviceKeys,
@@ -16,12 +15,9 @@ import { trackEvents } from "@/lib/analytics";
 
 export default function ServicesPreview() {
   const t = useTranslations("services");
-  const locale = useLocale();
   const [activeService, setActiveService] = useState<ServiceKey>("visits");
 
-  const getLocalizedPath = (path: string) => {
-    return locale === "es" ? path : `/${locale}${path}`;
-  };
+  const getLocalizedPath = (path: string) => path;
 
   const handleServiceChange = (key: ServiceKey) => {
     setActiveService(key);

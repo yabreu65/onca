@@ -1,18 +1,15 @@
 import Link from 'next/link';
-import { useTranslations, useLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { ArrowRight, Check } from 'lucide-react';
 import { serviceKeys, serviceIcons, getServiceSlug } from '@/lib/utils';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'services' });
+export async function generateMetadata() {
+  const t = await getTranslations({ locale: 'es', namespace: 'services' });
   return { title: t('title'), description: t('description') };
 }
 
-export default function ServiciosPage() {
-  const t = useTranslations('services');
-  const locale = useLocale();
+export default async function ServiciosPage() {
+  const t = await getTranslations({ locale: 'es', namespace: 'services' });
 
   return (
     <div className="min-h-screen">
@@ -27,7 +24,7 @@ export default function ServiciosPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {serviceKeys.map((key) => (
-              <Link key={key} href={`/${locale}/servicios/${getServiceSlug(key)}`} className="group bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+              <Link key={key} href={`/servicios/${getServiceSlug(key)}`} className="group bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
                 <div className="bg-gradient-to-br from-service-blue to-blue-800 p-6">
                   <div className="w-16 h-16 bg-onca-orange rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">{serviceIcons[key]}</div>
                   <h3 className="text-xl font-bold text-white">{t(`items.${key}.title`)}</h3>

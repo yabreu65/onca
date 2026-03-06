@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Phone, Mail, Linkedin, Instagram } from 'lucide-react';
 import { siteConfig, serviceKeys, getServiceSlug } from '@/lib/utils';
 import Logo from '@/components/ui/Logo';
@@ -9,11 +9,8 @@ import Logo from '@/components/ui/Logo';
 export default function Footer() {
   const t = useTranslations('footer');
   const tServices = useTranslations('services.tabs');
-  const locale = useLocale();
 
-  const getLocalizedPath = (path: string) => {
-    return locale === 'es' ? path : `/${locale}${path}`;
-  };
+  const getLocalizedPath = (path: string) => path;
 
   return (
     <footer className="bg-gray-900 text-white font-roboto">
@@ -49,8 +46,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
           <p>© {new Date().getFullYear()} ONCA IT. {t('rights')}</p>
           <div className="flex gap-6">
-            <Link href={`/${locale}/privacidad`} className="hover:text-onca-orange">{t('privacy')}</Link>
-            <Link href={`/${locale}/terminos`} className="hover:text-onca-orange">{t('terms')}</Link>
+            <Link href="/privacidad" className="hover:text-onca-orange">{t('privacy')}</Link>
+            <Link href="/terminos" className="hover:text-onca-orange">{t('terms')}</Link>
           </div>
         </div>
       </div>

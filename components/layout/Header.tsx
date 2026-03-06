@@ -2,7 +2,7 @@
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import Image from "next/image";
@@ -209,7 +209,6 @@ function MobileMenu({
 export default function Header() {
   const t = useTranslations("nav");
   const tServices = useTranslations("services.tabs");
-  const locale = useLocale();
   const pathname = usePathname();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -231,8 +230,7 @@ export default function Header() {
     setServicesOpen(false);
   }, [pathname]);
 
-  const getLocalizedPath = (path: string) =>
-    locale === "es" ? path : `/${locale}${path}`;
+  const getLocalizedPath = (path: string) => path;
 
   const navItems = useMemo(
     () => [
@@ -247,7 +245,7 @@ export default function Header() {
       { label: t("contact"), href: getLocalizedPath("/#contacto") },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [locale, pathname],
+    [pathname],
   );
 
   return (

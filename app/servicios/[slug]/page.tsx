@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { Play } from "lucide-react";
 import {
   serviceKeys,
   serviceIcons,
@@ -12,20 +11,22 @@ import {
 } from "@/lib/utils";
 
 export function generateStaticParams() {
-  // Generate params for all slugs (both Spanish and English)
+  // Generate params for all supported service slugs
   return Object.keys(serviceSlugs).map((slug) => ({ slug }));
 }
+
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const resolvedParams = await params;
-  const serviceKey = serviceSlugs[resolvedParams.slug];
+  const { slug } = await params;
+  const serviceKey = serviceSlugs[slug];
   if (!serviceKey) return { title: "Not found" };
   const t = await getTranslations({
-    locale: resolvedParams.locale,
+    locale: "es",
     namespace: "services",
   });
   return {
@@ -37,18 +38,14 @@ export async function generateMetadata({
 export default async function ServicePage({
   params,
 }: {
-  params: Promise<{ slug: string; locale: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug, locale } = await params;
+  const { slug } = await params;
   const serviceKey = serviceSlugs[slug] as ServiceKey;
   if (!serviceKey) notFound();
 
-  const t = await getTranslations({ locale, namespace: "services" });
-  const currentIndex = serviceKeys.indexOf(serviceKey);
-
-  const getLocalizedPath = (path: string) => {
-    return locale === "es" ? path : `/${locale}${path}`;
-  };
+  const t = await getTranslations({ locale: "es", namespace: "services" });
+  const getLocalizedPath = (path: string) => path;
 
   return (
     <div className="min-h-screen">

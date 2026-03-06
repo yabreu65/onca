@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { partners } from '@/lib/utils';
 
-export default function PartnersPage() {
-  const t = useTranslations('partners');
+export default async function PartnersPage() {
+  const t = await getTranslations({ locale: 'es', namespace: 'partners' });
 
   return (
     <div className="min-h-screen">
