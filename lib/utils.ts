@@ -10,7 +10,7 @@ export const siteConfig = {
   url: "https://oncait.com.ar",
   phone: "+54 11 4421-8558 / +54 249 438-2736",
   email: "hola@oncait.com",
-  whatsapp: "5411442185583",
+  whatsapp: "5492494382736",
   social: {
     linkedin: "https://linkedin.com/company/oncait",
     instagram: "https://instagram.com/oncait",
