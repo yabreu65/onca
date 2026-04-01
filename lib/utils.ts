@@ -82,11 +82,11 @@ export const serviceSlugsByLocale: Record<ServiceKey, string> = {
 export const serviceVideos: Record<ServiceKey, string> = {
   visits: "/videos/visitas.mp4",
   orders: "/videos/WhatsApp-Video.mp4",
-  preparation: "/videos/Preparacion.mp4",
+  preparation: "/videos/preparacion.mp4",
   delivery: "/videos/entregas.mp4",
   reception: "/videos/recepciones.mp4",
   collections: "/videos/cobranzas.mp4",
-  authorization: "/videos/Autorizacion.mp4",
+  authorization: "/videos/autorizacion.mp4",
 };
 
 export function getServiceSlug(serviceKey: ServiceKey): string {
