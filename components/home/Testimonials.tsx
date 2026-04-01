@@ -160,7 +160,7 @@ export default function Testimonials() {
                     />
 
                     {/* Content Overlay */}
-                    <div className="mt-auto h-[210px] mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-3 shadow-xl flex flex-col">
+                    <div className="mt-auto h-[220px] mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-3 shadow-xl flex flex-col">
                       <h3 className="font-black text-xl uppercase  font-roboto text-black">
                         {card.company}
                       </h3>
