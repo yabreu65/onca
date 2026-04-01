@@ -150,7 +150,7 @@ export default function Testimonials() {
                   className="flex-shrink-0 relative"
                   style={{ width: `${100 / itemsToShow}%` }}
                 >
-                  <div className="h-[600px] relative w-full">
+                  <div className="h-[600px] flex flex-col relative w-full">
                     {/* Image */}
                     <Image
                       src={card.image}
@@ -160,7 +160,7 @@ export default function Testimonials() {
                     />
 
                     {/* Content Overlay */}
-                    <div className="absolute bottom-0 mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-1 sm:py-3 shadow-xl max-sm:h-[165px] md:h-[200px] 2xl:h-[150px] flex flex-col">
+                    <div className="mt-auto h-[210px] mx-2 bg-white/60 backdrop-blur-sm rounded-3xl rounded-b-none px-6 py-3 shadow-xl flex flex-col">
                       <h3 className="font-black text-xl uppercase  font-roboto text-black">
                         {card.company}
                       </h3>
@@ -173,7 +173,7 @@ export default function Testimonials() {
                           </span>
                         )}
                       </p>
-                      <div className="text-gray-800 text-sm font-medium italic leading-relaxed font-roboto text-left">
+                      <div className="text-gray-800 text-xs sm:text-sm font-medium italic leading-relaxed font-roboto text-left">
                         <span
                           dangerouslySetInnerHTML={{
                             __html: `"${card.quote.replace(

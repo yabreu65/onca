@@ -81,7 +81,7 @@ export const serviceSlugsByLocale: Record<ServiceKey, string> = {
 
 export const serviceVideos: Record<ServiceKey, string> = {
   visits: "/videos/visitas.mp4",
-  orders: "/videos/pedidos.mp4",
+  orders: "/videos/WhatsApp-Video.mp4",
   preparation: "/videos/Preparacion.mp4",
   delivery: "/videos/entregas.mp4",
   reception: "/videos/recepciones.mp4",

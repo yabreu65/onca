@@ -166,7 +166,7 @@ export default function ServicesPreview() {
                     </li>
                     <li>
                       Módulos configurables: pedidos, cobranzas, inventario,
-                      entregas, visitas y más
+                      entregas, pedidos y más
                     </li>
                   </ul>
                 </div>

@@ -78,7 +78,7 @@ export default async function ServicePage({
       {/* Main content - Black background */}
       <div className="bg-[#2C2F31] text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Service cards */}
             <div className="space-y-8">
               {/* Blue card with icon */}
@@ -118,12 +118,12 @@ export default async function ServicePage({
 
             {/* Right side - Phone mockup */}
             <div className="flex justify-center lg:justify-end relative">
-              <div className="relative rotate-[-6deg]">
+              <div className={`relative ${serviceKey === "orders" ? "" : "rotate-[-6deg]"}`}>
                 {/* Phone mockup */}
                 <div className="flex justify-center w-full relative z-10">
                   {serviceVideos[serviceKey] && (
                     <video
-                      className="w-1/2 max-w-5xl rounded-2xl shadow-xl"
+                      className={serviceKey === "orders" ? "w-full h-auto rounded-2xl shadow-xl" : "w-1/2 max-w-5xl rounded-2xl shadow-xl"}
                       src={serviceVideos[serviceKey]}
                       autoPlay
                       loop

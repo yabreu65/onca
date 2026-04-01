@@ -251,7 +251,7 @@ export default function Header() {
   return (
     <>
       {/* Top bar (scrolls with the page) */}
-      <div className="bg-[#1D1D1B] text-white py-4 md:block">
+      <div className="hidden bg-[#1D1D1B] text-white py-4">
         <div className="text-xs md:text-xl font-roboto px-4 flex justify-center gap-12 md:gap-32">
           <a
             href={`tel:${siteConfig.phone}`}

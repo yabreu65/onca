@@ -40,6 +40,12 @@ export default async function RootLayout({children}: {children: React.ReactNode}
 
   return (
     <html lang="es" className={`${montserrat.variable} ${openSans.variable} ${poppins.variable} ${robotoCondensed.variable}`}>
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon_48x48.svg" sizes="48x48" />
+        <link rel="icon" type="image/svg+xml" href="/favicon_96x96.svg" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon_144x144.svg" sizes="144x144" />
+        <link rel="apple-touch-icon" href="/favicon_144x144.svg" />
+      </head>
       <body className="font-opensans antialiased">
         <NextIntlClientProvider locale="es" messages={messages}>
           <Analytics />
