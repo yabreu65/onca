@@ -37,3 +37,6 @@ next-env.d.ts
 # OS
 .DS_Store
 Thumbs.db
+
+# Local artifacts
+onca-static-out.zip
