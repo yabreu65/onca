@@ -26,14 +26,6 @@ export default function ServicesPreview() {
 
   return (
     <section id="servicios" className="w-full">
-      {/* Top contact bar */}
-      <div className="bg-[#1D1D1B] text-white py-2 md:py-6">
-        <div className="max-w-7xl mx-auto  font-roboto text-xs md:text-xl px-4 flex justify-center gap-8">
-          <span>+54 11 333 3333</span>
-          <span>mail@oncait.com.ar</span>
-        </div>
-      </div>
-
       {/* Blue header section */}
       <div
         className="relative text-white overflow-hidden py-4"
